@@ -1,0 +1,18 @@
+\babel@toc {english}{}
+\contentsline {figure}{\numberline {1}{\ignorespaces Basic structure of a MOSFET device.\relax }}{3}{figure.caption.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Structure of the NPN MOSFET used for simulation.\relax }}{4}{figure.caption.3}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Doping profile of the MOSFET device.\relax }}{4}{figure.caption.5}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Gaussian profile with peak on the surface.\relax }}{5}{figure.caption.6}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Final Gaussian profile\relax }}{5}{figure.caption.7}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Mesh\relax }}{5}{figure.caption.8}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Detail of the mesh\relax }}{6}{figure.caption.9}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Simulation at equilibrium condition.\relax }}{6}{figure.caption.10}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Identification of Threshold and Current Gain.\relax }}{7}{figure.caption.11}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Output characteristic\relax }}{8}{figure.caption.13}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Gate capacitance as a function of $V_{GS}$\relax }}{9}{figure.caption.15}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Doping concentration for threshold adjustment\relax }}{10}{figure.caption.16}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Final doping concentration for threshold adjustment\relax }}{11}{figure.caption.19}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Simulation at equilibrium condition before and after threshold adjustment.\relax }}{12}{figure.caption.20}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Identification of Threshold and Current Gain.\relax }}{12}{figure.caption.21}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Output characteristic after threshold adjustment\relax }}{13}{figure.caption.23}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Gate capacitance before and after threshold adjustment.\relax }}{14}{figure.caption.25}%

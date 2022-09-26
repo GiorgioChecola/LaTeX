@@ -1,0 +1,29 @@
+\begin{thebibliography}{1}
+
+\bibitem{deblecker2011high}
+O~Deblecker.
+\newblock High-resolution dpwm using sigma-delta modulator implemented on a
+  low-cost buck development board.
+\newblock {\em International Journal of Electrical Engineering Education},
+  48(4):391--404, 2011.
+
+\bibitem{lukic2007multibit}
+Zdravko Lukic, Nabeel Rahman, and Aleksandar Prodie.
+\newblock Multibit {$\Sigma$--$\Delta$} {PWM} digital controller {IC} for
+  dc--dc converters operating at switching frequencies beyond 10 mhz.
+\newblock {\em IEEE Transactions on Power Electronics}, 22(5):1693--1707, 2007.
+
+\bibitem{norris2008quantization}
+Mark Norris, Lazaro~Marco Platon, Eduard Alarcon, and Dragan Maksimovic.
+\newblock Quantization noise shaping in digital pwm converters.
+\newblock In {\em 2008 IEEE Power Electronics Specialists Conference}, pages
+  127--133. IEEE, 2008.
+
+\bibitem{sato2007output}
+Y~Sato and M~Jiang.
+\newblock Output waveform improvement of high switching frequency pwm inverters
+  introducing digital signal processing.
+\newblock In {\em 2007 Power Conversion Conference-Nagoya}, pages 800--803.
+  IEEE, 2007.
+
+\end{thebibliography}

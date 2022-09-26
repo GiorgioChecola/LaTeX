@@ -1,0 +1,487 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+%\usepackage[a4paper, total={6in,8.6in}]{geometry}
+\usepackage{graphicx}
+\usepackage{animate}
+\usepackage{fancyhdr}
+\usepackage{esdiff}
+\usepackage[english]{babel}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{tabularx}	
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{latexsym}
+\usepackage{epstopdf}
+\usepackage{afterpage}
+\usepackage[bf, small]{caption}
+\usepackage{subcaption}
+\captionsetup[table]{oneside , margin = {2cm, 0cm},
+	justification=RaggedRight, singlelinecheck = false }
+\usepackage{subcaption}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{algorithm2e}
+\usepackage{microtype}
+\usepackage{titling}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{tasks}
+\usepackage[colorlinks=true]{hyperref} % the option is there to remove the square around links which is what I don't like.
+\usepackage{comment}
+\usepackage{attachfile}
+\usepackage{perpage} 
+\MakePerPage{footnote} % Reset the footnote counter perpage. may require to run latex twice.
+\usepackage{commath} % for absolute value
+\usepackage[margin=2cm]{geometry} % This is here to fit more text into the page.
+
+\setcounter{secnumdepth}{1}  % This removes the numbering from the subsections.
+% If you want the numbering of the subsection level just remove this line
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+	\posttitle{%
+		\par\end{center}
+	\begin{center}\large#1\end{center}
+	\vskip0.5em}%
+}
+
+\setlength{\parindent}{0pt} % No indentation for paragraphs. Because that is just old.
+\setlength{\parskip}{\baselineskip} % Instead use vertical paragraph spacing.
+
+\fontencoding{T1} % the better font encoding.
+\title{\textsc{Car Phone Holder}}
+%\subtitle{\textsc{Project of re-design of an existing product}}	
+%\date{11/06/2020}
+\author{Giorgio Checola}
+
+\makeatletter
+\def\@maketitle{
+\graphicspath{ {./images/} }
+\begin{center}
+	\includegraphics[width=75mm]{images/Unitn.png} \\
+	\vspace{10mm}
+	\LARGE{UNIVERSIT\`A DEGLI STUDI DI TRENTO}
+	\large
+	
+	Department of Industrial Engineering\\
+	
+	
+	\vspace{15mm}
+	\item { \Large Master's degree in \emph{Mechatronics Engineering}}
+	\vspace{3mm}			
+	\item { \Large Course of Design and Control of Product and Process} \\			
+	\vspace{2mm}
+	\item{\large Project of re-design of an existing product}\\
+	
+	\vspace{12mm}		
+	
+	\item {\Huge \@title } 
+	
+	
+
+	\vspace{7mm}
+	
+	\begin{flushleft}
+		\textbf{Professor:\hfill Student:} \\
+		\smallskip
+		Paolo Bosetti \hfill Giorgio Checola
+	\end{flushleft}
+	
+	\vfill
+	Academic Year 2020 - 2021
+	
+\end{center}
+}
+\makeatother
+
+\begin{document}
+
+\graphicspath{ {./images/} }
+\maketitle
+\thispagestyle{empty}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\hypersetup{linkcolor = black}
+\tableofcontents
+
+\newpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\leftmark}
+\fancyhead[RE,LO]{\thepage}
+\fancyfoot[LE,RO]{\rightmark}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\section{Product}
+	During this project-work the students had to re-design an existing product. \\ 
+	I and my colleagues, members of group D, chose the \textbf{car phone holder}, a very popular product with many variants on the market, each of them with own characteristics and different ways of operation.
+	 
+	\subsection{House of quality}
+	We started from the quality function deployment for gaining knowledge about this product in order to understand how it works and how we could create a product that could do compete on the market. \\
+	We identified the driver as main customer, since it is the person which prevalently use it. On the back burner also the manufacturer, term with which we are meaning all companies which make the parts and assemble them.
+	
+	\smallskip
+	
+	Then we thought about what a hypothetical customer would like from a similar product, and we identified these requirements:
+	
+	\begin{tasks}(2)
+		\task[$\circ$] The holder must not come off
+		\task[$\circ$] The phone must not detach from the holder
+		\task[$\circ$] Adjustable for different cell phones
+		\task[$\circ$] Possibility to recharge the cell phone
+		\task[$\circ$] Easy to attach the cell phone
+		\task[$\circ$] No vibration while driving
+		\task[$\circ$] Easy to adjust
+		\task[$\circ$] Different adjustable positions
+		\task[$\circ$] Easily viewable cell phone display
+		\task[$\circ$] Easy to stack
+		\task[$\circ$] Small dimensions
+		\task[$\circ$] Looks nice
+		\task[$\circ$] Easy to recycle
+		\task[$\circ$] Usable on several surfaces
+	\end{tasks} 
+	  
+	 We chose 3 competitors which satisfy the requirements in different ways, and did a benchmarking.
+	 \begin{itemize}
+	 	\item[$\odot$] \textbf{Yosh Car Phone Holder} is composed by a long flexible arm and is attached to the windshield
+	 	\item[$\oplus$] \textbf{iOttie Easy One Touch 4} is attached with a suction cup and it has several adjustable positions
+	 	\item[$\Diamond$] \textbf{SBS Space magnetic support} is small and works thanks to a strong magnet 
+	 \end{itemize}
+	 
+	 We found one or more engineering specifications for each requirements, pointed out the relationships, and underlined correlations between the specifications. We set in broad terms the engineering targets by relying on the sites of the competitors and some videos.
+	 Finally we have diagonalized it to identify possible subsystems.\\
+	 You can see the complete House of Quality in the figure below (an important note: the substitution of the requirement \emph{Small dimensions} is described later).   
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=150mm]{images/qfd.png}
+			\caption{House of quality}
+			\label{House of quality}
+		\end{figure}
+\newpage
+\section{Concept development}
+	In order to do a good design we wanted to generate many different concepts. For this reason we had to start from defining all functions of our product, what it shall do, so we switched to the functional decomposition.
+	\subsection{Functional decomposition}
+		We chose \textbf{Hold the phone} as main function, instead \textbf{Set up} and \textbf{Disassemble} as separated functions, since they are not correlated with the main one, but are important as well, and we decomposed them.
+		They have been split in sub-functions till finding atomic ones, as you can see in Figure \ref{Hold the phone}, \ref{Set up}, \ref{Disassemble} (the ones linked by dashed arrows are in temporal order). 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=120mm]{images/func1.png}
+			\caption{Main function: Hold the phone}
+			\label{Hold the phone}
+		\end{figure}
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=120mm]{images/func2.png}
+			\caption{Function: Set up}
+			\label{Set up}
+		\end{figure}
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=120mm]{images/func3.png}
+			\caption{Function: Disassemble}
+			\label{Disassemble}
+		\end{figure}
+	
+		Figure \ref{Main black box} shows a black box with all functions inside, to which inputs and outputs of energy fluxes, materials, information, and constraints are linked. \\
+		The other figures show specific black boxes with each sub-functions and their own fluxes. 
+		 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=100mm]{images/func4.png}
+			\caption{Main black box}
+			\label{Main black box}
+		\end{figure}
+	
+		\begin{figure}[H]
+			\begin{subfigure}[b]{0.3\textwidth}
+				\includegraphics[width=55mm]{images/func5.png}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[b]{0.3\textwidth}
+				\includegraphics[width=55mm]{images/func6.png}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[b]{0.3\textwidth}
+				\includegraphics[width=55mm]{images/func7.png}
+			\end{subfigure}
+			\caption{Hold the phone sub-functions}
+			\label{Hold the phone sub-functions}	
+		\end{figure}
+	
+		\begin{figure}[H]
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/func8.png}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/func9.png}
+			\end{subfigure}
+		\end{figure}
+		\begin{figure}[H]
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/func10.png}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/func11.png}
+			\end{subfigure}
+			\caption{Set up sub-functions}
+			\label{Set up sub-functions}	
+		\end{figure}
+	
+		\begin{figure}[H]
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/func12.png}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/func13.png}
+			\end{subfigure}
+			\caption{Disassemble sub-functions}
+			\label{Disassemble sub-functions}	
+		\end{figure}
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=100mm]{images/func14.png}
+			\caption{Atomic functions}
+			\label{Atomic functions}
+		\end{figure}
+	
+	\subsection{Evaporating Cloud}
+		Since there was a strong negative correlation between the engineering specifications \emph{Overall dimensions} and \emph{Workspace} we studied the conflict through Evaporating Cloud analysis. \\
+		The problem was that we wanted to make our product be very adjustable but at the same time be quite small in order not to obstruct the driver. 
+		
+		\smallskip
+		
+		In this way we made some decisions: the requirement \emph{Small dimensions} is not completely correct to describe the discomfort due to the dimensions of car phone holder, and so we changed it with \emph{Don't bother the driver} and the specification \emph{People don't bother by} which includes different factors, as well as the size. \\
+		The overall dimension are also important for the requirement \emph{Easy to stack}, but in this case we consider the single disassembled parts instead of the assembly. It was important that each component was designed to be stack in order not to waste money, instead of focusing on reducing the dimensions too much. 
+		
+		\smallskip
+		
+		For these reasons there is not a strong trade-off between these two engineering specifications. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=150mm]{images/FinaleCloudEvaporation.png}
+			\caption{Evaporating cloud}
+			\label{Evaporating cloud}
+		\end{figure}
+	
+	
+	\subsection{Concept generation}
+		Once we found all the sub-functions, we generated as many concepts as we could. We always managed to find more than one concept variant. They were collected in the Morphology Table (Table \ref{Sub-concepts}).
+		
+		\smallskip
+		
+		Then, each of us has put together sub-functions to create different product concepts, as you can see, for example in Figure \ref{My concepts}. We used some reference videos and competitors' sites, as well as our fantasy, including also some crazy ideas. They are all shown in Figure \ref{All idea concepts}.
+		\begin{table}[H]
+			\centering
+			\includegraphics[width=150mm]{images/concept.png}
+			\caption{Morphology Table}
+			\label{Sub-concepts}
+		\end{table}
+		
+		
+		\begin{figure}[H]
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/conc1.png}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/conc2.png}
+			\end{subfigure}
+			\caption{My concepts}
+			\label{My concepts}
+		\end{figure}
+	
+		\begin{figure}[H]
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/dis1.png}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/dis2.png}
+			\end{subfigure}
+		\end{figure}
+	
+		\begin{figure}[H]
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/dis3.png}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[b]{0.5\textwidth}
+				\centering
+				\includegraphics[width=75mm]{images/dis4.png}
+			\end{subfigure}
+			\caption{All idea concepts}
+			\label{All idea concepts}
+		\end{figure}
+	
+	\newpage
+
+\section{Concept evaluation}
+	After that, we came by to the concept evaluation, where we compared every concepts between them. \\
+	They were all promising from the feasibility point of view. The idea of tuned mass damper implemented on a small device was very creative, but we were not sure it could be feasible. After a consult with a professor specialized in that field, we went on with all of them.
+	
+	\smallskip
+	
+	Then we evaluated them against the state of the art. Since it is a simple product, it does not require research. \\
+	We did the first screening by means of the GO/No-go table: we understood that some concepts would not be able to meet some requirements (No-go) and we opted to cancel them.
+	
+	\bigskip
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=150mm]{images/GoNoGo.png}
+		\caption{GO/No-go screening}
+		\label{GO/No-go screening}
+	\end{figure}
+	
+	At this point each of us independently developed a decision matrix, more precisely, the \textbf{Robust decision matrix} to make better decisions with the factor Belief $=p(k)p(c) + (1-p(k))(1-p(c))$. \\
+	I personally chose a constant value of 0.7 for every knowledge columns because of my university background, expect for the requirement \emph{Looks nice} that I evaluated 0.6.
+	
+	\smallskip
+	
+	You can see in Table \ref{Concept ranking} a ranking made with the mean of all scores: the winner concept was the one with the tuned mass damper implemented (Figure \ref{tuned}). However, since one of the requirements could have been partially satisfied, we did a design review adding the capability to reach more positions thanks to the sub-concept of the revolute joint and a mechanism which would have permitted to adjust the vertical position of the phone, increasing the workspace.\\
+	As first idea we thought about the sextant of boats. This is the reason why we put it as DATUM during Product generation.
+	
+	\bigskip
+	
+	\begin{table}[H]
+		\centering
+		\includegraphics[width=150mm]{images/decMatrixGiorgio.png}
+		\caption{My Decision matrix}
+		\label{My Decision matrix}
+	\end{table}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=50mm]{images/tuned.png}
+		\caption{Tuned Mass Damper concept}
+		\label{tuned}
+	\end{figure}
+
+	\begin{table}[H]
+		\centering
+		\includegraphics[width=150mm]{images/RankingFinale.png}
+		\caption{Concept ranking}
+		\label{Concept ranking}
+	\end{table}
+
+	\medskip
+	
+	We Finally repeated the decision matrix to be sure that this last concept overcame the past score, and so it was (Final concept: Giostra). \\
+	As the last step we estimated if our first three concepts remained inside the targets of the engineering specifications. \\
+	
+	
+	\begin{table}[H]
+		\centering
+		\includegraphics[width=150mm]{images/TargetEval.png}
+		\caption{Target evaluation}
+		\label{Target evaluation}
+	\end{table}
+	
+\newpage
+
+\section{Product generation}
+	Once decided the final concept we proceeded to make our product. \\
+	We have primarily focused on the position and orientation of some components and on the most important connections. We started thinking about the dimensions, like length of the arms, base, diameter of the suction cup, workspace... \\
+	In order to evaluated objectively the best choice, we independently developed a decision matrix giving scores respect to the DATUM (Figure \ref{DATUM}).\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=80mm]{images/datum.jpg}
+		\caption{DATUM}
+		\label{DATUM}
+	\end{figure}
+ 
+	\begin{table}[H]
+		\centering
+		\includegraphics[width=150mm]{images/prodMatGior.png}
+		\caption{My Product decision matrix}
+		\label{My Product decision matrix}
+	\end{table}
+
+	\begin{table}[H]
+		\centering
+		\includegraphics[width=150mm]{images/prodMat.png}
+		\caption{Team Product decision matrix}
+		\label{Team Product decision matrix}
+	\end{table}
+	\newpage	
+	As result of these decisions, our product had to have:
+	\begin{itemize}
+		\item[$\rightarrow$] Distance of 11 $cm$ between the two connections on the base
+		\item[$\rightarrow$] Tuned mass damper on the base
+		\item[$\rightarrow$] Attachment position of the main arm with the piston at three-quarters
+		\item[$\rightarrow$] Double suction cup with one lever
+		\item[$\rightarrow$] Telescopic piston
+		\item[$\rightarrow$] Revolute joint between main arm and base
+	\end{itemize} 
+\subsection{Layout design}
+	We switched to Inventor to design the 3D CAD of the final layout.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=125mm]{images/layout_design.pdf}
+		\caption{2D drawing}
+		\label{2D}
+	\end{figure}
+	
+	%also visible here \\
+	%\textattachfile[color=0.7 0.2 0.3]{images/layout_design.pdf}{pdf disegno}
+	
+	From Figure \ref{2D} you can see:
+	\begin{itemize}
+	\item a site view
+	\item a section view from above
+	\item a 3D view with all the parts identified by a number
+	\item the bill of materials 	
+	\end{itemize}
+
+	\newpage
+	
+	Instead, in the figures below there are the assembly and an animation of the car phone holder, showing how it works.
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.3\textwidth}
+			\includegraphics[height=55mm]{images/vista0.jpg}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.3\textwidth}
+			\includegraphics[height=55mm]{images/vista2.jpg}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.3\textwidth}
+			\includegraphics[height=55mm]{images/vista3.jpg}
+		\end{subfigure}
+		\caption{3D CAD views}
+		\label{3D CAD}
+	\end{figure}
+	
+	\begin{center}
+		\animategraphics[loop,controls,width=0.7\textwidth]{10}{gif/frame-}{0}{120} \\
+	\end{center}
+
+\footnotesize
+\newpage
+\thispagestyle{empty}
+\listoffigures
+\listoftables
+\end{document}

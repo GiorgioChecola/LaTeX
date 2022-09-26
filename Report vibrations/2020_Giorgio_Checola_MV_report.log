@@ -1,0 +1,1235 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.14)  30 AUG 2020 17:30
+entering extended mode
+**./2020_Giorgio_Checola_MV_report.tex
+(2020_Giorgio_Checola_MV_report.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-04-06>
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\article.cls"
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\size11.clo"
+File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\inputenc.sty"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/ucs\utf8x.def"
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/ucs\ucs.sty"
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/ucs\uni-global.def"
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count175
+\uc@combtoks=\toks17
+\uc@combtoksb=\toks18
+\uc@temptokena=\toks19
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks20
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphics.sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/esdiff\esdiff.sty"
+Package: esdiff 
+)
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.sty"
+Package: babel 2020/03/22 3.42 The Babel package
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\switch.def"
+File: switch.def 2020/03/22 3.42 Babel switching mechanism
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/babel-english\english.ldf"
+Language: english 2017/06/06 v3.3r English support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.def"
+File: babel.def 2020/03/22 3.42 Babel common definitions
+\babel@savecnt=\count176
+\U@D=\dimen137
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\txtbabel.def")
+\bbl@readstream=\read2
+\bbl@dirlevel=\count177
+)
+Package babel Info: \l@canadian = using hyphenrules for english
+(babel)             (\language0) on input line 102.
+Package babel Info: \l@australian = using hyphenrules for ukenglish
+(babel)             (\language72) on input line 105.
+Package babel Info: \l@newzealand = using hyphenrules for ukenglish
+(babel)             (\language72) on input line 108.
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\color.sty"
+Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/booktabs\booktabs.sty"
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen138
+\lightrulewidth=\dimen139
+\cmidrulewidth=\dimen140
+\belowrulesep=\dimen141
+\belowbottomsep=\dimen142
+\aboverulesep=\dimen143
+\abovetopsep=\dimen144
+\cmidrulesep=\dimen145
+\cmidrulekern=\dimen146
+\defaultaddspace=\dimen147
+\@cmidla=\count178
+\@cmidlb=\count179
+\@aboverulesep=\dimen148
+\@belowrulesep=\dimen149
+\@thisruleclass=\count180
+\@lastruleclass=\count181
+\@thisrulewidth=\dimen150
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\tabularx.sty"
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen151
+\ar@mcellbox=\box45
+\extrarowheight=\dimen152
+\NC@list=\toks21
+\extratabsurround=\skip49
+\backup@length=\skip50
+\ar@cellbox=\box46
+)
+\TX@col@width=\dimen153
+\TX@old@table=\dimen154
+\TX@old@col=\dimen155
+\TX@target=\dimen156
+\TX@delta=\dimen157
+\TX@cols=\count182
+\TX@ftn=\toks22
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count183
+\float@exts=\toks23
+\float@box=\box47
+\@float@everytoks=\toks24
+\@floatcapt=\box48
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/enumitem\enumitem.sty"
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip51
+\enit@outerparindent=\dimen158
+\enit@toks=\toks25
+\enit@inbox=\box49
+\enit@count@id=\count184
+\enitdp@description=\count185
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf.sty"
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/infwarerr\infwarerr.sty"
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/grfext\grfext.sty"
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/kvdefinekeys\kvdefinekeys.sty"
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/kvoptions\kvoptions.sty"
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.sty"
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex/generic/kvsetkeys\kvsetkeys.sty"
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/pdftexcmds\pdftexcmds.sty"
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\iftex.sty"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\afterpage.sty"
+Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
+\AP@output=\toks26
+\AP@partial=\box50
+\AP@footins=\box51
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption.sty"
+Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption3.sty"
+Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen159
+\captionmargin@=\dimen160
+\captionwidth=\dimen161
+\caption@tempdima=\dimen162
+\caption@indent=\dimen163
+\caption@parindent=\dimen164
+\caption@hangindent=\dimen165
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count186
+\c@continuedfloat=\count187
+Package caption Info: float package is loaded.
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/caption\subcaption.sty"
+Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
+\c@subfigure=\count188
+\c@subtable=\count189
+)
+Package caption Info: Usage of `ragged2e' command \RaggedRight detected on inpu
+t line 16.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/mathtools\mathtools.sty"
+Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count190
+\calc@Bcount=\count191
+\calc@Adimen=\dimen166
+\calc@Bdimen=\dimen167
+\calc@Askip=\skip52
+\calc@Bskip=\skip53
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count192
+\calc@Cskip=\skip54
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/mathtools\mhsetup.sty"
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty"
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip55
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks27
+\ex@=\dimen168
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen169
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count193
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count194
+\leftroot@=\count195
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count196
+\DOTSCASE@=\count197
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+\big@size=\dimen170
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count198
+\c@MaxMatrixCols=\count199
+\dotsspace@=\muskip16
+\c@parentequation=\count266
+\dspbrk@lvl=\count267
+\tag@help=\toks28
+\row@=\count268
+\column@=\count269
+\maxfields@=\count270
+\andhelp@=\toks29
+\eqnshift@=\dimen171
+\alignsep@=\dimen172
+\tagshift@=\dimen173
+\tagwidth@=\dimen174
+\totwidth@=\dimen175
+\lineht@=\dimen176
+\@envbody=\toks30
+\multlinegap=\skip56
+\multlinetaggap=\skip57
+\mathdisplay@stack=\toks31
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
+\g_MT_multlinerow_int=\count271
+\l_MT_multwidth_dim=\dimen177
+\origjot=\skip58
+\l_MT_shortvdotswithinadjustabove_dim=\dimen178
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen179
+\l_MT_above_intertext_sep=\dimen180
+\l_MT_below_intertext_sep=\dimen181
+\l_MT_above_shortintertext_sep=\dimen182
+\l_MT_below_shortintertext_sep=\dimen183
+\xmathstrut@box=\box54
+\xmathstrut@dim=\dimen184
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\multicol.sty"
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count272
+\mult@box=\box55
+\multicol@leftmargin=\dimen185
+\c@unbalance=\count273
+\c@collectmore=\count274
+\doublecol@number=\count275
+\multicoltolerance=\count276
+\multicolpretolerance=\count277
+\full@width=\dimen186
+\page@free=\dimen187
+\premulticols=\dimen188
+\postmulticols=\dimen189
+\multicolsep=\skip59
+\multicolbaselineskip=\skip60
+\partial@page=\box56
+\last@line=\box57
+\maxbalancingoverflow=\dimen190
+\mult@rightbox=\box58
+\mult@grightbox=\box59
+\mult@gfirstbox=\box60
+\mult@firstbox=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\c@minrows=\count278
+\c@columnbadness=\count279
+\c@finalcolumnbadness=\count280
+\last@try=\dimen191
+\multicolovershoot=\dimen192
+\multicolundershoot=\dimen193
+\mult@nat@firstbox=\box99
+\colbreak@box=\box100
+\mc@col@check@num=\count281
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/algorithm2e\algorithm2e.sty"
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count282
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip61
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/ifoddpage\ifoddpage.sty"
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count283
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\xspace.sty"
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/relsize\relsize.sty"
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip62
+\skiplinenumber=\skip63
+\skiprule=\skip64
+\skiphlne=\skip65
+\skiptext=\skip66
+\skiplength=\skip67
+\algomargin=\skip68
+\skipalgocfslide=\skip69
+\algowidth=\dimen194
+\inoutsize=\dimen195
+\inoutindent=\dimen196
+\interspacetitleruled=\dimen197
+\interspacealgoruled=\dimen198
+\interspacetitleboxruled=\dimen199
+\algocf@ruledwidth=\skip70
+\algocf@inoutbox=\box101
+\algocf@inputbox=\box102
+\AlCapSkip=\skip71
+\AlCapHSkip=\skip72
+\algoskipindent=\skip73
+\algocf@nlbox=\box103
+\algocf@hangingbox=\box104
+\algocf@untilbox=\box105
+\algocf@skipuntil=\skip74
+\algocf@capbox=\box106
+\algocf@lcaptionbox=\skip75
+\algoheightruledefault=\skip76
+\algoheightrule=\skip77
+\algotitleheightruledefault=\skip78
+\algotitleheightrule=\skip79
+\c@algocfline=\count284
+\c@algocfproc=\count285
+\c@algocf=\count286
+\algocf@algoframe=\box107
+\algocf@algobox=\box108
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\microtype.sty"
+Package: microtype 2019/11/18 v2.7d Micro-typographical refinements (RS)
+\MT@toks=\toks32
+\MT@count=\count287
+LaTeX Info: Redefining \textls on input line 790.
+\MT@outer@kern=\dimen256
+LaTeX Info: Redefining \textmicrotypecontext on input line 1354.
+\MT@listname@count=\count288
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\microtype-pdftex.def"
+File: microtype-pdftex.def 2019/11/18 v2.7d Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 914.
+LaTeX Info: Redefining \lslig on input line 914.
+\MT@outer@space=\skip80
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\microtype.cfg"
+File: microtype.cfg 2019/11/18 v2.7d microtype main configuration file (RS)
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/titling\titling.sty"
+Package: titling 2009/09/04 v2.1d maketitle typesetting
+\thanksmarkwidth=\skip81
+\thanksmargin=\skip82
+\droptitle=\skip83
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\verbatim.sty"
+Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks33
+\verbatim@line=\toks34
+\verbatim@in@stream=\read3
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/tasks\tasks.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3kernel\expl3.sty"
+Package: expl3 2020-04-06 L3 programming layer (loader) 
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count289
+\l__pdf_internal_box=\box109
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse.sty"
+Package: xparse 2020-03-06 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count290
+\g__xparse_grabber_int=\count291
+\l__xparse_m_args_int=\count292
+\l__xparse_v_nesting_int=\count293
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xtemplate\xtemplate.sty"
+Package: xtemplate 2020-03-06 L3 Experimental prototype document functions
+\l__xtemplate_tmp_dim=\dimen257
+\l__xtemplate_tmp_int=\count294
+\l__xtemplate_tmp_muskip=\muskip17
+\l__xtemplate_tmp_skip=\skip84
+)
+Package: tasks 2020/03/21 v1.2 lists with columns filled horizontally
+\g__tasks_total_items_int=\count295
+\l__tasks_columns_int=\count296
+\g__tasks_rows_int=\count297
+\g__tasks_current_col_num_int=\count298
+\g__tasks_current_row_num_int=\count299
+\l__tasks_item_columns_int=\count300
+\g__tasks_env_int=\count301
+\l__tasks_start_int=\count302
+\l__tasks_item_indent_dim=\dimen258
+\l__tasks_item_default_indent_dim=\dimen259
+\l__tasks_item_width_dim=\dimen260
+\l__tasks_label_width_dim=\dimen261
+\l__tasks_label_default_width_dim=\dimen262
+\l__tasks_label_offset_dim=\dimen263
+\l__tasks_label_default_offset_dim=\dimen264
+\l__tasks_column_sep_dim=\dimen265
+\l__tasks_correction_dim=\dimen266
+\l__tasks_full_width_dim=\dimen267
+\l__tasks_after_item_skip=\skip85
+\l__tasks_custom_after_item_skip=\skip86
+\l__tasks_before_list_skip=\skip87
+\l__tasks_after_list_skip=\skip88
+\l__tasks_item_coffin=\box110
+\l__tasks_label_coffin=\box111
+\c@task=\count303
+\l__tasks_tmpa_int=\count304
+\l__tasks_tmpb_int=\count305
+\l__tasks_tmpa_coffin=\box112
+\l__tasks_tmpa_box=\box113
+
+Package xtemplate Info: Declaring object type 'tasks' taking 3 argument(s) on
+(xtemplate)             line 440.
+
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/tasks\tasks.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
+Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/pdfescape\pdfescape.sty"
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/hycolor\hycolor.sty"
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/letltxmacro\letltxmacro.sty"
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/auxhook\auxhook.sty"
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+\@linkdim=\dimen268
+\Hy@linkcounter=\count306
+\Hy@pagecounter=\count307
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
+File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex/generic/intcalc\intcalc.sty"
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex/generic/etexcmds\etexcmds.sty"
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count308
+Package hyperref Info: Option `colorlinks' set `true' on input line 4421.
+Package hyperref Info: Hyper figures OFF on input line 4547.
+Package hyperref Info: Link nesting OFF on input line 4552.
+Package hyperref Info: Hyper index ON on input line 4555.
+Package hyperref Info: Plain pages OFF on input line 4562.
+Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4800.
+\c@Hy@tempcnt=\count309
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5159.
+\XeTeXLinkMargin=\dimen269
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/bitset\bitset.sty"
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/bigintcalc\bigintcalc.sty"
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count310
+\Field@Width=\dimen270
+\Fld@charsize=\dimen271
+Package hyperref Info: Hyper figures OFF on input line 6430.
+Package hyperref Info: Link nesting OFF on input line 6435.
+Package hyperref Info: Hyper index ON on input line 6438.
+Package hyperref Info: backreferencing OFF on input line 6445.
+Package hyperref Info: Link coloring ON on input line 6448.
+Package hyperref Info: Link coloring with OCG OFF on input line 6455.
+Package hyperref Info: PDF/A mode OFF on input line 6460.
+LaTeX Info: Redefining \ref on input line 6500.
+LaTeX Info: Redefining \pageref on input line 6504.
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/atbegshi\atbegshi.sty"
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+)
+\Hy@abspage=\count311
+\c@Item=\count312
+\c@Hfootnote=\count313
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hpdftex.def"
+File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/atveryend\atveryend.sty"
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+Package atveryend Info: \AP@enddocument detected (standard20110627).
+)
+\Fld@listcount=\count314
+\c@bookmark@seq@number=\count315
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/rerunfilecheck\rerunfilecheck.sty"
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/uniquecounter\uniquecounter.sty"
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip89
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/comment\comment.sty"
+\CommentStream=\write3
+
+Excluding comment 'comment')
+("C:\Program Files\MiKTeX 2.9\tex/latex/bigfoot\perpage.sty"
+Package: perpage 2014/10/25 2.0 Reset/sort counters per page
+\c@abspage=\count316
+)
+\c@pp@a@footnote=\count317
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/commath\commath.sty")
+("C:\Program Files\MiKTeX 2.9\tex/latex/geometry\geometry.sty"
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifvtex.sty"
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count318
+\Gm@cntv=\count319
+\c@Gm@tempcnt=\count320
+\Gm@bindingoffset=\dimen272
+\Gm@wd@mp=\dimen273
+\Gm@odd@mp=\dimen274
+\Gm@even@mp=\dimen275
+\Gm@layoutwidth=\dimen276
+\Gm@layoutheight=\dimen277
+\Gm@layouthoffset=\dimen278
+\Gm@layoutvoffset=\dimen279
+\Gm@dimlist=\toks35
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/geometry\geometry.cfg"))
+(2020_Giorgio_Checola_MV_report.aux)
+\openout1 = `2020_Giorgio_Checola_MV_report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/ucs\ucsencs.def"
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count321
+\scratchdimen=\dimen280
+\scratchbox=\box114
+\nofMPsegments=\count322
+\nofMParguments=\count323
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count324
+\MPscratchDim=\dimen281
+\MPnumerator=\count325
+\makeMPintoPDFobject=\count326
+\everyMPtoPDFconversion=\toks37
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: Load package `ragged2e'.
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/ragged2e\ragged2e.sty"
+Package: ragged2e 2019/07/28 v2.2 ragged2e Package (MS)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/ms\everysel.sty"
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 126.
+)
+\CenteringLeftskip=\skip90
+\RaggedLeftLeftskip=\skip91
+\RaggedRightLeftskip=\skip92
+\CenteringRightskip=\skip93
+\RaggedLeftRightskip=\skip94
+\RaggedRightRightskip=\skip95
+\CenteringParfillskip=\skip96
+\RaggedLeftParfillskip=\skip97
+\RaggedRightParfillskip=\skip98
+\JustifyingParfillskip=\skip99
+\CenteringParindent=\skip100
+\RaggedLeftParindent=\skip101
+\RaggedRightParindent=\skip102
+\JustifyingParindent=\skip103
+)
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \microtypecontext on input line 91.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+LaTeX Info: Redefining \showhyphens on input line 91.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-cmr.cfg"
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+\AtBeginShipoutBox=\box115
+Package hyperref Info: Link coloring ON on input line 91.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/refcount\refcount.sty"
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex/generic/gettitlestring\gettitlestring.sty"
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count327
+)
+LaTeX Info: Redefining \ref on input line 91.
+LaTeX Info: Redefining \pageref on input line 91.
+LaTeX Info: Redefining \nameref on input line 91.
+
+(2020_Giorgio_Checola_MV_report.out) (2020_Giorgio_Checola_MV_report.out)
+\@outlinefile=\write4
+\openout4 = `2020_Giorgio_Checola_MV_report.out'.
+
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69687pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+<images/Unitn.png, id=19, 225.84375pt x 225.84375pt>
+File: images/Unitn.png Graphic file (type png)
+<use images/Unitn.png>
+Package pdftex.def Info: images/Unitn.png  used on input line 95.
+(pdftex.def)             Requested size: 213.39566pt x 213.40967pt.
+[1
+
+{C:/Users/giorg/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/Un
+itn.png>] [2]
+<images/model.png, id=35, 566.71725pt x 225.84375pt>
+File: images/model.png Graphic file (type png)
+<use images/model.png>
+Package pdftex.def Info: images/model.png  used on input line 108.
+(pdftex.def)             Requested size: 426.79134pt x 170.08884pt.
+ [3 <./images/model.png>]
+("C:\Program Files\MiKTeX 2.9\tex/latex/ucs\uni-0.def"
+File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
+)
+<images/1_modeshape1.png, id=51, 308.15125pt x 401.5pt>
+File: images/1_modeshape1.png Graphic file (type png)
+<use images/1_modeshape1.png>
+Package pdftex.def Info: images/1_modeshape1.png  used on input line 215.
+(pdftex.def)             Requested size: 156.49014pt x 203.89845pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 215--216
+[][] 
+ []
+
+<images/1_modeshape2.png, id=52, 308.15125pt x 401.5pt>
+File: images/1_modeshape2.png Graphic file (type png)
+<use images/1_modeshape2.png>
+Package pdftex.def Info: images/1_modeshape2.png  used on input line 220.
+(pdftex.def)             Requested size: 156.49014pt x 203.89845pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 220--221
+[][] 
+ []
+
+<images/1_modeshape3.png, id=53, 307.1475pt x 401.5pt>
+File: images/1_modeshape3.png Graphic file (type png)
+<use images/1_modeshape3.png>
+Package pdftex.def Info: images/1_modeshape3.png  used on input line 225.
+(pdftex.def)             Requested size: 156.49014pt x 204.56624pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 225--226
+[][] 
+ []
+
+[4]
+<images/1_modeshape4.png, id=69, 308.15125pt x 401.5pt>
+File: images/1_modeshape4.png Graphic file (type png)
+<use images/1_modeshape4.png>
+Package pdftex.def Info: images/1_modeshape4.png  used on input line 233.
+(pdftex.def)             Requested size: 156.49014pt x 203.89845pt.
+<images/1_modeshape5.png, id=70, 308.15125pt x 401.5pt>
+File: images/1_modeshape5.png Graphic file (type png)
+<use images/1_modeshape5.png>
+Package pdftex.def Info: images/1_modeshape5.png  used on input line 239.
+(pdftex.def)             Requested size: 156.49014pt x 203.89845pt.
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 231--242
+[][]  [] 
+ []
+
+[5 <./images/1_modeshape1.png (PNG copy)> <./images/1_modeshape2.png (PNG copy)
+> <./images/1_modeshape3.png (PNG copy)> <./images/1_modeshape4.png (PNG copy)>
+ <./images/1_modeshape5.png (PNG copy)>]
+<images/1_tf1_1.png, id=81, 519.9425pt x 401.5pt>
+File: images/1_tf1_1.png Graphic file (type png)
+<use images/1_tf1_1.png>
+Package pdftex.def Info: images/1_tf1_1.png  used on input line 307.
+(pdftex.def)             Requested size: 156.49014pt x 120.83688pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 307--308
+ [][] 
+ []
+
+<images/1_tf1_2.png, id=82, 519.9425pt x 401.5pt>
+File: images/1_tf1_2.png Graphic file (type png)
+<use images/1_tf1_2.png>
+Package pdftex.def Info: images/1_tf1_2.png  used on input line 313.
+(pdftex.def)             Requested size: 156.49014pt x 120.83688pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 313--314
+ [][] 
+ []
+
+<images/1_tf1_3.png, id=83, 519.9425pt x 401.5pt>
+File: images/1_tf1_3.png Graphic file (type png)
+<use images/1_tf1_3.png>
+Package pdftex.def Info: images/1_tf1_3.png  used on input line 319.
+(pdftex.def)             Requested size: 156.49014pt x 120.83688pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 319--320
+ [][] 
+ []
+
+[6]
+<images/1_tf2_1.png, id=95, 519.9425pt x 401.5pt>
+File: images/1_tf2_1.png Graphic file (type png)
+<use images/1_tf2_1.png>
+Package pdftex.def Info: images/1_tf2_1.png  used on input line 328.
+(pdftex.def)             Requested size: 142.26378pt x 109.85226pt.
+<images/1_tf2_2.png, id=96, 519.9425pt x 401.5pt>
+File: images/1_tf2_2.png Graphic file (type png)
+<use images/1_tf2_2.png>
+Package pdftex.def Info: images/1_tf2_2.png  used on input line 334.
+(pdftex.def)             Requested size: 156.49014pt x 120.83688pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 334--335
+ [][] 
+ []
+
+<images/1_tf2_3.png, id=97, 519.9425pt x 401.5pt>
+File: images/1_tf2_3.png Graphic file (type png)
+<use images/1_tf2_3.png>
+Package pdftex.def Info: images/1_tf2_3.png  used on input line 340.
+(pdftex.def)             Requested size: 156.49014pt x 120.83688pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 340--341
+ [][] 
+ []
+
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+[7 <./images/1_tf1_1.png (PNG copy)> <./images/1_tf1_2.png (PNG copy)> <./image
+s/1_tf1_3.png (PNG copy)> <./images/1_tf2_1.png (PNG copy)> <./images/1_tf2_2.p
+ng (PNG copy)> <./images/1_tf2_3.png (PNG copy)>]
+<images/1_5modeshape1.png, id=112, 519.9425pt x 401.5pt>
+File: images/1_5modeshape1.png Graphic file (type png)
+<use images/1_5modeshape1.png>
+Package pdftex.def Info: images/1_5modeshape1.png  used on input line 388.
+(pdftex.def)             Requested size: 156.49014pt x 120.83688pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 388--389
+ [][] 
+ []
+
+<images/1_5modeshape2.png, id=113, 519.9425pt x 401.5pt>
+File: images/1_5modeshape2.png Graphic file (type png)
+<use images/1_5modeshape2.png>
+Package pdftex.def Info: images/1_5modeshape2.png  used on input line 394.
+(pdftex.def)             Requested size: 156.49014pt x 120.83688pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 394--395
+ [][] 
+ []
+
+<images/1_5modeshape3.png, id=114, 519.9425pt x 401.5pt>
+File: images/1_5modeshape3.png Graphic file (type png)
+<use images/1_5modeshape3.png>
+Package pdftex.def Info: images/1_5modeshape3.png  used on input line 400.
+(pdftex.def)             Requested size: 156.49014pt x 120.83688pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 400--401
+ [][] 
+ []
+
+[8 <./images/1_5modeshape1.png (PNG copy)> <./images/1_5modeshape2.png (PNG cop
+y)> <./images/1_5modeshape3.png (PNG copy)>]
+<images/2_acc1.png, id=121, 1445.4pt x 635.37375pt>
+File: images/2_acc1.png Graphic file (type png)
+<use images/2_acc1.png>
+Package pdftex.def Info: images/2_acc1.png  used on input line 420.
+(pdftex.def)             Requested size: 497.92322pt x 218.87454pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 420--421
+ [][] 
+ []
+
+<images/2_acc2.png, id=122, 1445.4pt x 635.37375pt>
+File: images/2_acc2.png Graphic file (type png)
+<use images/2_acc2.png>
+Package pdftex.def Info: images/2_acc2.png  used on input line 426.
+(pdftex.def)             Requested size: 497.92322pt x 218.87454pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 426--427
+ [][] 
+ []
+
+<images/2_acc3.png, id=123, 1445.4pt x 635.37375pt>
+File: images/2_acc3.png Graphic file (type png)
+<use images/2_acc3.png>
+Package pdftex.def Info: images/2_acc3.png  used on input line 432.
+(pdftex.def)             Requested size: 497.92322pt x 218.87454pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 432--433
+ [][] 
+ []
+
+[9 <./images/2_acc1.png (PNG copy)> <./images/2_acc2.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 440--442
+
+ []
+
+<images/2_meanstd1.png, id=131, 1445.4pt x 635.37375pt>
+File: images/2_meanstd1.png Graphic file (type png)
+<use images/2_meanstd1.png>
+Package pdftex.def Info: images/2_meanstd1.png  used on input line 445.
+(pdftex.def)             Requested size: 426.79134pt x 187.60814pt.
+<images/2_meanstd2.png, id=132, 1445.4pt x 635.37375pt>
+File: images/2_meanstd2.png Graphic file (type png)
+<use images/2_meanstd2.png>
+Package pdftex.def Info: images/2_meanstd2.png  used on input line 451.
+(pdftex.def)             Requested size: 426.79134pt x 187.60814pt.
+[10 <./images/2_acc3.png (PNG copy)> <./images/2_meanstd1.png (PNG copy)>]
+<images/2_meanstd3.png, id=140, 1445.4pt x 635.37375pt>
+File: images/2_meanstd3.png Graphic file (type png)
+<use images/2_meanstd3.png>
+Package pdftex.def Info: images/2_meanstd3.png  used on input line 457.
+(pdftex.def)             Requested size: 426.79134pt x 187.60814pt.
+
+[11 <./images/2_meanstd2.png (PNG copy)> <./images/2_meanstd3.png (PNG copy)>]
+<images/hammer.png, id=147, 557.58313pt x 378.41376pt>
+File: images/hammer.png Graphic file (type png)
+<use images/hammer.png>
+Package pdftex.def Info: images/hammer.png  used on input line 476.
+(pdftex.def)             Requested size: 284.52756pt x 193.10394pt.
+<images/3_accelerations1.png, id=148, 816.651pt x 409.53pt>
+File: images/3_accelerations1.png Graphic file (type png)
+<use images/3_accelerations1.png>
+Package pdftex.def Info: images/3_accelerations1.png  used on input line 488.
+(pdftex.def)             Requested size: 156.49014pt x 78.47389pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 488--489
+ [][] 
+ []
+
+<images/3_accelerations2.png, id=149, 816.651pt x 410.0118pt>
+File: images/3_accelerations2.png Graphic file (type png)
+<use images/3_accelerations2.png>
+Package pdftex.def Info: images/3_accelerations2.png  used on input line 493.
+(pdftex.def)             Requested size: 156.49014pt x 78.56621pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 493--494
+ [][] 
+ []
+
+<images/3_accelerations3.png, id=150, 816.651pt x 409.53pt>
+File: images/3_accelerations3.png Graphic file (type png)
+<use images/3_accelerations3.png>
+Package pdftex.def Info: images/3_accelerations3.png  used on input line 498.
+(pdftex.def)             Requested size: 156.49014pt x 78.47389pt.
+
+Overfull \hbox (11.37961pt too wide) in paragraph at lines 498--499
+ [][] 
+ []
+
+<images/3_comparison1e5.png, id=151, 822.07124pt x 411.03563pt>
+File: images/3_comparison1e5.png Graphic file (type png)
+<use images/3_comparison1e5.png>
+Package pdftex.def Info: images/3_comparison1e5.png  used on input line 509.
+(pdftex.def)             Requested size: 426.79134pt x 213.39479pt.
+[12 <./images/hammer.png> <./images/3_accelerations1.png (PNG copy)> <./images/
+3_accelerations2.png (PNG copy)> <./images/3_accelerations3.png (PNG copy)>]
+<images/3_tfacc1.png, id=160, 1445.4pt x 635.37375pt>
+File: images/3_tfacc1.png Graphic file (type png)
+<use images/3_tfacc1.png>
+Package pdftex.def Info: images/3_tfacc1.png  used on input line 520.
+(pdftex.def)             Requested size: 426.79134pt x 187.60814pt.
+<images/3_tfacc2.png, id=161, 1445.4pt x 635.37375pt>
+File: images/3_tfacc2.png Graphic file (type png)
+<use images/3_tfacc2.png>
+Package pdftex.def Info: images/3_tfacc2.png  used on input line 525.
+(pdftex.def)             Requested size: 426.79134pt x 187.60814pt.
+<images/3_tfacc3.png, id=162, 1445.4pt x 635.37375pt>
+File: images/3_tfacc3.png Graphic file (type png)
+<use images/3_tfacc3.png>
+Package pdftex.def Info: images/3_tfacc3.png  used on input line 530.
+(pdftex.def)             Requested size: 426.79134pt x 187.60814pt.
+
+[13 <./images/3_comparison1e5.png> <./images/3_tfacc1.png (PNG copy)>]
+File: images/1_tf1_1.png Graphic file (type png)
+<use images/1_tf1_1.png>
+Package pdftex.def Info: images/1_tf1_1.png  used on input line 540.
+(pdftex.def)             Requested size: 213.39566pt x 164.78146pt.
+<images/3_meanstd1.png, id=171, 804.606pt x 411.4572pt>
+File: images/3_meanstd1.png Graphic file (type png)
+<use images/3_meanstd1.png>
+Package pdftex.def Info: images/3_meanstd1.png  used on input line 545.
+(pdftex.def)             Requested size: 213.39566pt x 109.12352pt.
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 538--547
+[][]  [] 
+ []
+
+File: images/1_tf1_2.png Graphic file (type png)
+<use images/1_tf1_2.png>
+Package pdftex.def Info: images/1_tf1_2.png  used on input line 553.
+(pdftex.def)             Requested size: 213.39566pt x 164.78146pt.
+<images/3_meanstd2.png, id=172, 804.606pt x 411.4572pt>
+File: images/3_meanstd2.png Graphic file (type png)
+<use images/3_meanstd2.png>
+Package pdftex.def Info: images/3_meanstd2.png  used on input line 558.
+(pdftex.def)             Requested size: 213.39566pt x 109.12352pt.
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 551--560
+[][]  [] 
+ []
+
+[14 <./images/3_tfacc2.png (PNG copy)> <./images/3_tfacc3.png (PNG copy)> <./im
+ages/3_meanstd1.png (PNG copy)>]
+File: images/1_tf1_3.png Graphic file (type png)
+<use images/1_tf1_3.png>
+Package pdftex.def Info: images/1_tf1_3.png  used on input line 566.
+(pdftex.def)             Requested size: 213.39566pt x 164.78146pt.
+<images/3_meanstd3.png, id=181, 803.6424pt x 411.4572pt>
+File: images/3_meanstd3.png Graphic file (type png)
+<use images/3_meanstd3.png>
+Package pdftex.def Info: images/3_meanstd3.png  used on input line 571.
+(pdftex.def)             Requested size: 213.39566pt x 109.25537pt.
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 564--573
+[][]  [] 
+ []
+
+[15 <./images/3_meanstd2.png (PNG copy)> <./images/3_meanstd3.png (PNG copy)>]
+File: images/1_tf2_1.png Graphic file (type png)
+<use images/1_tf2_1.png>
+Package pdftex.def Info: images/1_tf2_1.png  used on input line 615.
+(pdftex.def)             Requested size: 213.39566pt x 164.78146pt.
+<images/4_meanstd1.png, id=188, 807.015pt x 411.4572pt>
+File: images/4_meanstd1.png Graphic file (type png)
+<use images/4_meanstd1.png>
+Package pdftex.def Info: images/4_meanstd1.png  used on input line 620.
+(pdftex.def)             Requested size: 213.39566pt x 108.79706pt.
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 613--622
+[][]  [] 
+ []
+
+File: images/1_tf2_2.png Graphic file (type png)
+<use images/1_tf2_2.png>
+Package pdftex.def Info: images/1_tf2_2.png  used on input line 628.
+(pdftex.def)             Requested size: 213.39566pt x 164.78146pt.
+<images/4_meanstd2.png, id=189, 807.015pt x 411.4572pt>
+File: images/4_meanstd2.png Graphic file (type png)
+<use images/4_meanstd2.png>
+Package pdftex.def Info: images/4_meanstd2.png  used on input line 633.
+(pdftex.def)             Requested size: 213.39566pt x 108.79706pt.
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 626--635
+[][]  [] 
+ []
+
+[16 <./images/4_meanstd1.png (PNG copy)>]
+File: images/1_tf2_3.png Graphic file (type png)
+<use images/1_tf2_3.png>
+Package pdftex.def Info: images/1_tf2_3.png  used on input line 641.
+(pdftex.def)             Requested size: 213.39566pt x 164.78146pt.
+<images/4_meanstd3.png, id=198, 807.015pt x 411.4572pt>
+File: images/4_meanstd3.png Graphic file (type png)
+<use images/4_meanstd3.png>
+Package pdftex.def Info: images/4_meanstd3.png  used on input line 646.
+(pdftex.def)             Requested size: 213.39566pt x 108.79706pt.
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 639--648
+[][]  [] 
+ []
+
+[17 <./images/4_meanstd2.png (PNG copy)> <./images/4_meanstd3.png (PNG copy)>]
+(2020_Giorgio_Checola_MV_report.lof)
+\tf@lof=\write5
+\openout5 = `2020_Giorgio_Checola_MV_report.lof'.
+
+ (2020_Giorgio_Checola_MV_report.lot)
+\tf@lot=\write6
+\openout6 = `2020_Giorgio_Checola_MV_report.lot'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 658.
+
+[18]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 658.
+ (2020_Giorgio_Checola_MV_report.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 658.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 658.
+Package rerunfilecheck Info: File `2020_Giorgio_Checola_MV_report.out' has not 
+changed.
+(rerunfilecheck)             Checksum: D3CBE369BA64405ACE156E48DBCA361D;211.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 658.
+ ) 
+Here is how much of TeX's memory you used:
+ 14143 strings out of 480930
+ 234991 string characters out of 2909547
+ 577381 words of memory out of 3000000
+ 29563 multiletter control sequences out of 15000+200000
+ 542435 words of font info for 83 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,10n,49p,566b,973s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on 2020_Giorgio_Checola_MV_report.pdf (18 pages, 2554365 bytes).
+
+PDF statistics:
+ 328 PDF objects out of 1000 (max. 8388607)
+ 81 named destinations out of 1000 (max. 500000)
+ 16085 words of extra memory for PDF output out of 17280 (max. 10000000)
+

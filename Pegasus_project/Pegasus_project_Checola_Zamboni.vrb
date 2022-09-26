@@ -1,0 +1,33 @@
+\frametitle{TARGET VALUES (part.3)}
+\begin{itemize}
+			\small
+			\item \hypertarget{10}{\textbf{Power}}: we selected the target from these competitors:			
+			\begin{itemize}
+				\scriptsize
+				\item[$\rightarrow$] \url{https://www.rideentertainment.com/extreme-rides/booster/}
+				\item[$\rightarrow$] \url{https://www.rideentertainment.com/extreme-rides/chaos-pendle/}
+			\end{itemize}
+			
+			\medskip
+			
+			\item \hypertarget{8}{\textbf{Passengers' height}}:  we imposed the limit of man 95 percentile:	
+			
+			\medskip
+			
+			\begin{itemize}
+				\scriptsize
+				\item[$\rightarrow$] \url{https://www.rideentertainment.com/extreme-rides/chaos-pendle/}
+				\item[$\rightarrow$] \url{https://www.rideentertainment.com/extreme-rides/booster/}
+				\item[$\rightarrow$] \url{https://dqydj.com/height-percentile-calculator-for-men-and-women/}
+			\end{itemize}
+			
+			\medskip
+			
+			\item \hypertarget{9}{\textbf{Passengers' weight}}: we imposed the limit of man 95 percentile:
+			\begin{itemize}
+				\scriptsize
+				\item[$\rightarrow$] \url{https://dqydj.com/weight-percentile-calculator-men-women/}
+				\item[$\rightarrow$] \textattachfile[color=0.0 0.72 0.92]{allegati/revolution32specsheet.pdf}{Revolution 32}
+			\end{itemize}
+			
+		\end{itemize}

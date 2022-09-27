@@ -1,0 +1,205 @@
+\label{intro}
+
+%The kind of autonomous surface vessel (ASV) which I'll refer from now on is vessel of small size, our main focus.
+
+%Small-scale operations include bathymetric surveys, pollution monitoring and data assimilation in a cluttered environment where the generation of safer way-points have the highest priority in the path planning.
+An \textit{autonomous vehicle} is a comprehensive intelligent system that integrates environmental perception, path planning, decision-making, and motion controlling technologies \cite{9564580}. More specifically, an autonomous surface vehicle is a vessel that can make decisions and operate independently without human guidance, navigation, and control. They are especially used in military operations, maritime surveillance cruises, and marine environmental monitoring applications \cite{vagale2021path}, the topic on which this thesis will focus. 
+%Nowadays they are used in many applications including marine explorations, oceanography, maritime search and rescue, surveillance, defense.\\
+\section{Background and Motivation}
+%"In the last years the progress in unmanned surface vehicles has increased rapidly. Developing autonomous ships opened many possibilities of use, previously limited due to the additional human constraints"
+In the last years, the use of unmanned vehicles in the marine environment has been increasing rapidly \cite{5152052}. Thanks to their substantial autonomy and adaptability, these ships have gradually become the new research direction pursued by the current industry. For example, Unmanned Surface Vehicles (USVs) are more suitable than manned ships for dealing with complex and changeable rough sea environments \cite{s20020426,vagale2021path}. This study is motivated by continuing efforts to improve operational safety and performance.
+
+One of the most important reasons for this growing activity is the need for better environmental monitoring, including meteorological and ecological studies. Its vast potential makes this type of vehicle essential for preserving our environment.
+Thanks to renewable solar and wind power sources, sailing robotics could be used for long-term missions and semi-persistent presences in the oceans \cite{towards}.
+%Many of these vessels can stay at sea for many days, if not months, without any energy recharge, because they exploit wind and wave forces and radiation of the sun to collect all the energy they need. 
+
+The Mayflower Autonomous Ship Project is a prime example of this innovative progress. Carried on by ProMare, with IBM's support, they developed an autonomous boat (Figure \ref{mayflower}) that can spend a long time at sea, carry scientific equipment, and make its own decisions about how to optimize its route and mission \cite{Mayflower}. 
+Three other leading companies are worth mentioning: the Norwegian Maritime Robotics, which has produced unmanned solutions for seabed mapping and monitoring of sheltered waters \cite{MaritimeRobotics} (USV Otter in Figure \ref{otter}); the American Saildrone company, whose vehicles (Figure \ref{saildrone}) collect ocean data that provide unprecedented intelligence for climate, mapping, and maritime security applications \cite{Saildrone}; and finally Witted \cite{witted} that designs autonomous drones for protecting the biodiversity of coastal habitats (see Figure \ref{wittsail}).
+
+Autonomy has to be achieved not only in terms of energy but also in terms of sailing decisions. Decision-making autonomy under variable and possibly dangerous navigation conditions is an aspect that has yet to be widely explored.
+\vspace{0.5cm}
+\begin{figure}[H]
+	\centering
+	\subfloat[Mayflower Autonomous Ship]{\includegraphics[height=0.30\textwidth]{Figures/mayflower.jpeg}\label{mayflower}} 
+	\hspace{0.2cm}
+	\centering
+	\subfloat[Otter USV]{\includegraphics[height=0.30\textwidth]{Figures/otterusv2.png}\label{otter}}
+	\hspace{0.2cm}
+	\subfloat[Saildrone USV]{\includegraphics[height=0.31\textwidth]{Figures/asvsaildrone.jpg}\label{saildrone}}
+	\hspace{0.2cm}
+	\subfloat[Argo USV by Witted]{\includegraphics[height=0.31\textwidth]{Figures/wittedusv3.jpg}\label{witted}}
+	\caption{Examples of autonomous surface vessels}
+	\label{wittsail}
+\end{figure}
+%The decision-making system in autonomous vehicles is the transition of environmental perception system and motion planning system. 
+As the ``brain'' of autonomous vehicles, a decision-making system is significant for vehicles' safety and efficient driving. Its purpose for marine vessels is to generate human-like decisions prioritizing \textbf{driving efficiency}, i.e., voyage time and energy consumption, but above all, \textbf{safety} at sea. 
+
+This research project aims to develop an autonomous surface vessel decision-making system that plans survey missions and paths depending on marine weather forecasting.
+Weather variations are one of the most critical factors that should be considered since the sea environment is sparse compared to classical indoor robotics environments. So, besides possible other ships, the most significant risk is represented by environmental disturbances.
+
+This thesis will focus on \textbf{path planning}, whose results are one of the aspects mainly considered to achieve better decisions \cite{9564580}. Autonomous path planning plays a crucial role in ship automation and practical application as the basis and premise of autonomous navigation \cite{s20020426, vagale2021path}. The basic idea is that the vessel receives marine weather data and other helpful information earlier in the day before the survey starts; it analyzes them; and plans the day's mission accordingly.
+
+%Ideally, weather data are delivered in real-time, allowing re-plan the route and update the decisions. However, it is out of this study. 
+The core will be \textbf{weather predictions} and how they can influence the path planning and the possibilities of action of small vessels. The necessity to first perform a global path planning which accounts for possible weather risks is essential for the success of the daily monitoring mission. Maritime Autonomous Surface Ships (MASS) and large-scale planning are excluded from this study and should be addressed differently. 
+
+%The topic is related to autonomous navigation for habitat monitoring. Autonomous surface ships (MASS) and large-scale planning are not considered and should be addressed in other ways.
+
+
+%Trajectory planning instead requires to include a temporal constraint to the geometric path, and so considering vehicle dynamics (vagale)
+%The research makes progress in the collision avoidance techniques and International Regulations for Preventing Collisions at Sea (COLREGs).
+%The lack of environmental factors in the algorithm was one of the main limitation of algorithms until some years ago. (vagale)
+%As previously said, crucial aspect of ASVs is safety and the ability to safely navigate in open waters, coastal areas, and congested waters like harbours. Clearly, the safety issue is the most challenging when avoiding collisions with other dynamic vessels or land in high-traffic congested waters (vagale)
+%"Finding an optimal safe path while driving in a lane can often be simpler than on unstructured roads or open areas where the distribution of obstacles is irregular. The complexity of the environment and kinodynamics makes path planning of surface vessels more challenging and different from ground vehicles." (vagale)
+
+\begin{comment}
+	\begin{itemize}	
+		\item The field of operational planning covers different aspects that range from weather forecasting  to safe ship navigation, handling to routing optimization. Autonomous planning of vessel operations
+		Decision-making represents a step-forward in the field of autonomous vehicles. In this case we are focused on decision-making process during the planning of ship operations.
+		There are still many challenges to be solved. The goal  
+		\item \textbf{Collision avoidance} problem, external environmental disturbances. How to treat them? Wind, waves and sea current constitute
+		\item \textbf{spatio temporal trajectory planning} non uso kalman perchè io so come saranno gli ostacoli alla window t2, t3, t4...
+		\item how to simulate \textbf{weather data}?: 
+	\end{itemize}
+	\begin{figure}[H]
+		\centering 
+		\subfloat[Otter USV]{\includegraphics[width=0.4\textwidth]{Figures/otterusv.png}\label{witted}}
+		\hspace{0.2cm}
+		\subfloat[Witted's USV]{\includegraphics[width=0.4\textwidth]{Figures/barca.jpg}\label{2}}
+		\hspace{0.2cm}
+		\subfloat[Mayflower Autonomous Ship]{\includegraphics[width=0.4\textwidth]{Figures/mayflower.jpeg}\label{3}}
+		\hspace{0.2cm}
+		\subfloat[Saildrone USV ]{\includegraphics[width=0.4\textwidth]{Figures/asvsaildrone.jpg}\label{4}}
+		\hspace{0.2cm}
+		\subfloat[L3Harris USV]{\includegraphics[width=0.4\textwidth]{Figures/asv2.jpg}\label{5}}
+		\hspace{0.2cm}
+		\subfloat[NAVCENT USV ]{\includegraphics[width=0.4\textwidth]{Figures/asvaraba.JPG}\label{Otter}}
+		\caption{USV examples} 
+		\label{usvsssss}
+	\end{figure}
+\end{comment}
+
+\begin{comment}
+	\subsection{Concept of safety and risk assessment}
+	Safety Map Generator
+	Improved safety and reduction of collision risk are the key objective of the guidance, navigation and control system of an autonomous surface vessel, especially the ones of small size.
+
+	As it can be imagined, vessel safety depends largely on the size of the vehicle. But also on the stability properities, heading and speed of the vessel in any given sea state. More information you have, smaller will be the probability of some occurrence. For this reason testing, and simulations are fundamental before the implementation in the real environment.
+	
+	Environmental effects and moving obstacles have a significant role in path planning of USVs. Neglecting them can increase the potential danger besides determine a waste of energy
+	\cite{singh2018constrained}. (A* constrained)
+	
+	Safety is directly related to the waves and the sea state in general. The best option in this case to limit the impact forces is reducing vessel speed or change course, the heading of the boat.
+	Navigate in extreme conditions cause large roll angles and in the some cases capsize too.
+	
+	In the case of autonomous surface vessel, the human error is not accounted, but there are other factors that result in an accident.
+	
+	In simulation, safety can be assured in many different ways: from building a safety map \cite{vagale2020evaluation}, or considering a safety distance around the vehicle \cite{singh2018constrained}, ...
+	To achieve the autonomous navigation of USVs in the practical maritime environment, the system should intelligently prioritize certain missions compared to other depending on the environments. It means, for example, to give higher priority to collision avoidance for small-scale operations in cluttered environments, and energy efficiency in large-scale missions. The other problem is the necessity to generate a feasible and optimal trajectory in a complex maritime dynamic environment. (\cite{SONG2017301}).\\
+\end{comment}
+
+%We don't speak about Trajectory planning because many other constraints are not considered. Time is taken into account, to introduce dynamic obstacles. Neither optimization of trajectory planning based on some constraints is introduced, the path does not change indeed. 
+
+
+%The idea of mindset comes from the literature, but with an approach extremely new. Just like in autonomous driving you implement decision-making algorithm on the vehicle predicting the deterministic spatio-temporal trajectory of the other cars, at the same way the objective is to consider the weather forecast in a semi-deterministic way dealing with the concept of safety, already seen in many other similar problem. The vessel should be able to decide which action to take with the aim of maximum safety, and this results in choosing the final point and the best path. In the future it will replace the human work of choosing the right day mission. 
+
+\section{Related work}
+Research on autonomous surface vessels is mainly divided into autonomous path planning, navigation control, collision avoidance, and semi-autonomous task execution. This section recalls some of the works which inspired the current project.
+
+Autonomous navigation of USVs in a practical marine environment needs to consider three important issues \cite{lavalle2006planning, statheros2008autonomous, singh2018constrained}:
+\begin{itemize}[itemsep=0pt]
+	\item Safety;
+	\item Reliability of the mission;
+	\item Probability of success;
+\end{itemize} 
+The \textbf{safety} issue is the most challenging and includes collision avoidance with other dynamic vessels, land in high-traffic congested waters, and also harsh weather conditions. Singh \textit{et al.} \cite{singh2018constrained} resolved this problem with a circular boundary enclosing the USV in motion planning simulations. Other ideas have been the introduction of a safety region around obstacles \cite{serigstad2018hybrid} or the direct generation of a safety map \cite{liu2017predictive}, or even the incorporation of COLREG rules, the International Regulations for Preventing Collisions at Sea, 1972.
+%Several safety regulations include COLREGs, the International Regulations for Preventing Collisions at Sea 1972, to define how vessels should act in various situations when meeting other vessels to navigate through waters safely and without collisions. The safety factor can be integrated into path planning algorithms, leading to safer waypoints (circular boundary, offset around obstacles, Kalman filter integration). Most leading companies in USV operations are looking for the integration of COLREGs with optimal path planners. 
+\vspace{0.3cm}
+
+The concept at the basis of the path planning approach that will be presented in \autoref{approach} is inspired by \textbf{3D spatiotemporal trajectory planning}. Exploited in autonomous driving, this type of planning uses a 3D spatiotemporal map instead of the general grid map to account for the trajectory prediction of the surrounding vehicles.  In this way, the dynamic path planning task in a 2D plane can be transformed into trajectory planning in a 3D static environment \cite{xin2021enable, zhang2021unified, zhang2020trajectory}.\\
+Rajendran \textit{et al.} \cite{rajendran2018wave} uses a similar trajectory planning approach to avoid waves generated by traffic vessels. The work proposes a global planner which accounts for large dynamic obstacles; waves are modeled as penalty regions that change spatiotemporally.
+\vspace{0.3cm}
+
+%this issue Weather avoidance systems are safety-critical .  addresses this issue  for determining  a linearly moving point, such as , will intersect a polygonal region, such as , .
+The safety of navigation is also the objective of \textbf{weather routing}, a class of large-scale path planning problems that uses weather forecasts to provide the optimal route and sailing speed for a given voyage \cite{zis2020ship} (Figure \ref{weatherroute} displays a route example).
+%Weather routing concerns  of finding the optimal path and sailing speed in large-scale areas for a given voyage based on the weather forecasts expected to encounter up to the arrival . 
+Weather forecast can be delivered in GRIB (GRIdded Binary) format, facilitating the reading of the input data \cite{pennino2020development}. T. Fabbri and R. Vicen-Bueno exploit this concept to provide the best window of opportunity to execute a journey/operation between two predefined locations \cite{fabbri2021decision}. \\
+Regarding sea data implementation, several path planning studies test Autonomous Underwater Vehicles (AUVs) in real environmental scenarios to determine energy-optimal paths. The information of the ocean current field for a particular time is stored in the NetCDF data format \cite{rao2009large, eichhorn2015optimal, garau2009path, SONG2017301}.
+%In several path planning studies, real environmental data, stored in netCDF format, are implemented to calculate energy-optimal paths that account for the influence of ocean currents. The vehicles are especially underwater gliders, a class of AUVs more affected by the ocean due to their low velocity \cite{rao2009large}, \cite{eichhorn2015optimal}, \cite{garau2009path}, \cite{SONG2017301}.
+\vspace{0.3cm}
+
+Lastly, weather avoidance is an ever-present and safety-relevant task studied in the aerospace field due to the potential dangers of convective weather. Narkawicz and Hagen \cite{narkawicz2016algorithms} describe functions for determining whether an aircraft will encounter a cell of convective weather within a predetermined look-ahead time. F. Mothes \cite{mothes2019trajectory} instead proposes a method for robust trajectory planning of fixed-wing aircraft in uncertain dynamic environments based on thunderstorm nowcast. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=130mm]{Figures/weatherroute.png}
+	\caption{Example of weather routing scale}
+	\label{weatherroute}
+\end{figure}
+\section{Contributions}
+Marine weather data are spatio-temporal dependent, so route planning needs to be enhanced by embedding time. Predicting these factors will play a crucial role in generating optimal paths.
+
+This thesis aims to build a link between autonomous navigation of vessel drones and weather forecasts at sea by comparing different approaches for path planning based on time windows that avoid dynamic obstacles represented by rough sea (Figure \ref{topic}). An \textit{optimal trajectory} is defined as taking the shortest time to get to the goal while staying clear of potentially dangerous areas. Therefore, the results are evaluated through three main performance metrics: the \textbf{travel time}, which affects route optimization, the \textbf{efficiency}, and the \textbf{safety}, which indicate respectively the probability of finding a viable path, and the safety of navigation if that path is actually traveled.
+%the energy indicates the driving efficiency, and the \textbf{travel success ratio}, or the probability of generating a feasible and safe path, 
+
+The contributions of this thesis are:
+\begin{itemize}[itemsep=0pt]
+	\item A review of path planning and decision-making of autonomous vessels;
+	\item A background in marine weather forecasting;
+	\item A statistical study of sea waves in the region of interest;
+	\item The design of different spatio-temporal approaches to predict time-varying sea conditions \textit{a priori};
+	\item A comparison of path planning algorithms for navigation in complex environments.
+\end{itemize} 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=80mm]{Figures/topic.png}
+	\caption{Topic of the thesis}
+	\label{topic}
+\end{figure}
+
+
+
+%Spatio-temporal trajectory planning is applied in all field of autonomous vehicles: UGV in highways or to avoid congestion/traffic, AUV for currents, UAV or aircraft to avoid bad weather encountering evolving scenarios as wind fields, USV where waves are considered as penalty regions.
+%Path planning is an extensively researched problem that have been studied for many years and where several approaches have been developed, both in known and unknown environment \cite{lavalle2006planning}. Path planning is an important layer in the mission management system of an USV voyage, and in general of autonomous vehicles. They need an effective and safe path planning approach when they operate in cluttered environments (a constrained a*). Focusing on USVs the three important issues in the autonomous navigation are:
+
+
+%Integrate environmental data in autonomous navigation is. in 2014 a group of Greek researchers developed the AMINESS platform \cite{giannakopoulos2014aminess}, a innovative monitoring system that will integrate maritime information from multiple sources, accessible by captains and ship owners, that can be used for optimal safe route planning and delivering real-time alerts in a high-risk environment as the Aegean Sea. These vessels are not autonomous, but the idea is the same: helping make decisions by contributing to the safety of the ship and the surrounding environment. This is achieved considering spatio-temporal marine and weather data, risk estimation and optimization algorithms.
+
+
+%The concept of decision-making and path planning is considered especially in dynamic environment where the risk of collision with obstacles is real, and the vehicle is subject to different options for action.\\
+%The example par excellence is autonomous driving: self-driving cars are the vehicles more subject to external signals, disturbances, uncertainties, obstacles, and the risk of accident must be completely avoided.
+%In the urban environment safety, comfort and economy are the objectives considered to improve tracking performance \cite{xin2021enable}. And this is better guaranteed with spatio-temporal trajectory planning in constrained dynamic environment. L. Xin et al. represented the driving map with a 3D spatio-temporal map in which the position of dynamic obstacles in the future could be illustrated. And then, a navigation algorithm was used to search the best trajectory. 
+
+%In \cite{zhang2020trajectory} a framework for trajectory planning constrained to safety strip was proposed. The forecasting trajectory of the social vehicles was considered deterministic.
+%Intelligent decision making and efficient trajectory planning are closely related especially in highway environment. T. Zhang et al. \cite{zhang2021unified} proposed a novel approach based on voxels for generating driving corridors which predict the states of the surrounding vehicles. Another example was provided by \cite{yao2019path}, where a method based on spatio-temporal congestion coefficient and improved A* Algorithm was derived to improve route planning and avoid traffic congestion.
+
+
+%Spatio-temporal trajectory planning: Urban environment is not the only one for which a precise and careful attention is needed. Marine and underwater environment can be considered in the same way, despite the lower presence of vehicles. This is due to the fact that the natural environment is more dynamic: weather factors have a major effect on the ship and their measurements is not easy at all. Moreover the consequences can be more catastrophic.
+ 
+%When we talked about decision-making together with path planning, we cannot but cite spatio-temporal trajectory planning, a very innovative approach to deal with this kind of problems. \\
+%In the last few years many research groups started dealing with the problem of optimal trajectory planning through the definition of spatio-temporal maps that describe the evolution of dynamic obstacles or environment data in the future. Depending on the context, different length scales are considered. From seconds/minutes in highway scenarios to hours/days for ship routing. Weather, for example, can be predicted in real-time, but it is updated at hourly interval at least. Spatial scale forecast must account for several variables as well.
+%The goal is to provide the most amount of information to the autonomous vehicle in order to help it make smart decisions in critical situations and ensure the safety of the vehicle itself.
+
+
+
+%NetCDF path planning and weather routing: weather routing is the general problem of route generation to guarantee efficient and safe navigation to the ships. NetCDF data are employed mainly for wave gliders and AUVs. This class of vehicles is susceptible to ocean current during deployment. 
+%Thus, in order to determine energy-optimal paths through the ocean current field, real ocean data, available in netCDF format, are employed in combination with path planner, as A* and RRT especially \cite{rao2009large}, \cite{garau2009path}, \cite{SONG2017301}. 
+
+
+
+
+%In marine industry natural environment has a bigger influence on the movement of the ship, even more if considering small USVs. Accounting for disturbances like winds and waves generated by atmospheric events and the motion of dynamic obstacles is primary.
+
+%The available free traversal space in the maritime environment varies with time, and the map used to compute the path for USVs must be updated at the mission time. In \cite{shah2019long} a quadtree representation of the marine environment was used for speeding up A* search. Weather- and environmental-based spatial restrictions could be easily incorporated as obstacles in quadtrees.
+
+
+
+%Underwater drones have to operate efficiently in a spatio-temporal, cluttered, and uncertain environment due to strong, time-varying currents. Z. Zeng et al. \cite{zeng2015efficient} presented a path re-planning methodology with the reuse of information gained from the previous planning history. The ocean was approximated by analytic equations with a Gaussian noise and was updated at every $\Delta_t$ value of time.
+%\cite{zeng2020exploiting} focused on developing a path planner that incorporates ocean currents forecasts for optimizing energy saving. Predictive ocean modeling was used.
+
+%Similar studies are addressed also for unmanned aircraft systems (UASs) which encounter evolving scenarios like wind fields. A data-driven decision solution for path planning was developed in \cite{he2019spatiotemporal} in which a stochastic influence model to generate spatio-temporal wind scenario data was used.
+
+
+\section{Outline of the thesis}
+The thesis is structured into six main chapters. After \autoref{intro}, the introduction, \autoref{second} recaps the path planning problem and the algorithms used and gives a brief background on marine weather forecasting. A statistical analysis of wave data is also included. \autoref{approach} describes the steps for developing the forecast map to perform the global path planning in the real environment.
+% a real environmental scenario. 
+\autoref{results} includes the simulations on which the algorithms and approaches are tested. \autoref{improvedmethod} concerns the generation of a better version of the spatio-temporal map.
+Finally, \autoref{conclusions} concludes the thesis and discusses ideas for future developments.  % wave height to is dedicated to the path planning algorithms including also some theoretical contents about forecast, weather and marine data analysis. 

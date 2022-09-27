@@ -1,0 +1,378 @@
+\label{results}
+This chapter shows the results of the developed spatio-temporal approaches for global path planning with large moving obstacles. After a brief test in artificial scenarios, we will see the paths taken in a real environment and a detailed comparison between algorithms and approaches. To follow, a discussion summaries the results obtained.
+\section{Artificial disturbance scenarios}
+Before performing real simulations, \textbf{\textit{Sum}}, \textbf{\textit{Global}}, and \textbf{\textit{Local}} are firstly tested in simple scenarios using the three path planning algorithms discussed in \autoref{second}.
+%In all of them, we use the three path planning algorithms.
+\begin{itemize}[itemsep=0pt]
+	\item \textbf{Scenario 1} represents a storm that moves in the vertical direction without changing shape;
+	\item \textbf{Scenario 2} simulates a cell of convective weather expanding in the middle of the navigation; % spreading
+	\item \textbf{Scenario 3} is a perturbation that moves and changes size in time.
+\end{itemize}
+We chose such scenarios to see the behavior of the algorithms in the presence of probable marine weather events.
+An area of $100\times80$ km is necessary to consider the time evolution of the fake atmospheric factors, which keep a temporal resolution of 1 hour. Results are illustrated in Figure \ref{scenario123}, where, for each scenario, the three approaches are displayed side by side.
+
+Each spatio-temporal approach sees the weather differently due to the generated map. This results in distinct navigational decision-making that can lead the vessel to travel a longer path (as with \textbf{\textit{Sum}}) or refrain from sailing due to the failure of the path planning with \textbf{\textit{Global}}.
+The same consideration can be done regarding the three algorithms: RRT* and A* search for the optimal solution by choosing similar path directions that leads to comparable path lengths. Instead, APF is the least efficient at generating a global route. Despite this, it is the only one that finds a complete path with \textbf{\textit{Global}} in scenario 1 (Figure \ref{toyglo1}), allowing the vehicle to start the mission.
+\begin{figure}[h]
+	\centering 
+	\subfloat[Scenario 1 - \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/toysum1.png}\label{toysum1}}
+	\hspace{0.1cm}
+	\subfloat[Scenario 1 - \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/toyglo1.png}\label{toyglo1}}
+	\hspace{0.1cm}
+	\subfloat[Scenario 1 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/toyloc1.png}\label{toyloc1}}
+	\hspace{0.1cm}
+	\subfloat[Scenario 2 - \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/toysum2.png}\label{toysum2}}
+	\hspace{0.1cm}
+	\subfloat[Scenario 2 - \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/toyglo2.png}\label{toyglo2}}
+	\hspace{0.1cm}
+	\subfloat[Scenario 2 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/toyloc2.png}\label{toyloc2}}
+	\hspace{0.1cm}
+	\subfloat[Scenario 3 - \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/toysum3.png}\label{toysum3}}
+	\hspace{0.1cm}
+	\subfloat[Scenario 3 - \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/toyglo3.png}\label{toyglo3}}
+	\hspace{0.1cm}
+	\subfloat[Scenario 3 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/toyloc3.png}\label{toyloc3}}
+	\vspace{0.0cm}
+	%\captionsetup{skip=-1mm}
+	\caption{Artificial disturbance scenarios} 
+	\label{scenario123}
+\end{figure}
+
+% because it tends to move following the repulsive swirling potential of the obstacles. .
+%\vspace{7.5cm}
+\section{Real environment simulations}
+The following figures show the paths generated in the first five days of navigation, each with its specific marine conditions. In the \hyperref[appendix]{Appendix}, instead, we displayed a series of additional days.\\ 
+Due to a lack of data and the reliance on the sea state for navigation, the current study does not represent a robust statistical analysis, for whom thousands of routes would be necessary. However, several simulations have been performed to strengthen the obtained results: we analyzed 12 days of 2021 and took two survey points, evaluating the reverse paths; the four nautical routes are listed below.
+Given a distance as the crow flies of about 8-9 hours, we considered a variable number between 12 and 15 forecast time windows. 
+\vspace{0.1cm}
+\begin{center}
+	\begin{tabular}{@{} r @{${}\longrightarrow{}$} l @{}}
+		Porto Vecchio harbor & Argentario\\
+		Porto Vecchio harbor & Elba Island\\
+		Argentario & Porto Vecchio harbor\\
+		Elba Island & Porto Vecchio harbor
+	\end{tabular}
+\end{center}
+\vspace{0.1cm}
+%These are run along 12 days of 2021 and two ending point. We chose days and time windows that could influence the navigation of the unmanned vessel. \\
+%As \textit{Global}} uses every time window for planning, in . Therefore, depending on the case, another specific map will be displayed. 
+%The symbol "$\times$" present in global paths corresponds to the way-point from which the vessel re-plan the route. There should be one point every $\Delta t=1$ hour of travel approximately.
+%Before performing an accurate analysis, let's see the results of the real simulations. 
+%The limited number of scenarios is due to the fact that, given a small configuration space, and constrained to choose start and goal with a certain meaning, I ended up to take two. Also, the choice of reasonable days of wave forecast (having to see how it moves and how it can affect path planning) takes time, and I chose five in the end. Repeating the simulations without changes leads to same results (except for RRT*), and so it was unnecessary. \\
+
+Along with the map images, Table \ref{tab:addlabel} and \ref{tabellaelba} indicate the travel time $T_{path}$ and computing time $t_{exec}$ of each run. In particular, the word "\textcolor{red}{None}" reports when the vehicle decides not to sail due to excessive coverage of the free space or due to a possible predicted sinking in case the USV crosses that path.\\
+Figure \ref{legendglobal} provides a legend with color bars to better understand the movements of the waves during \textbf{\textit{Global}}'s navigation.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=100mm]{Figures/legendglobal.png}
+	\caption{Legend for the time windows in \textbf{\textit{Global}}}
+	\label{legendglobal}
+\end{figure} 
+Still on \textbf{\textit{Global}}'s charts, the symbols '$\times$' in the paths represent the points where the vessel re-plans the route and are approximately at a distance of 1 hour's drive away from each other. Lastly, the red crosses signal where a possible sinking may occur.
+
+Concerning the three path planning algorithms, we can make the following statements by observing the figures:
+\begin{itemize}[itemsep=0pt]
+	\item \textbf{A*} path smoothness is not high due to redundant nodes;
+	\item \textbf{APF} shows the same behavior as in the artificial scenarios: it focuses on getting closer to its destination because of the attractive potential to the goal, without considering the path's cost so far. Despite its lower performance, the current results do not highlight significant increases in the travel time;
+	\item \textbf{RRT*} is the preferable algorithm even considering the high computing time to optimize the tree: thanks to the fact that it is not grid-based, its generated paths are shorter and smoother.
+\end{itemize}  
+%, while the symbol ``\textcolor{red}{$\times$}'' when it is not able to manage the navigation anymore.
+\vspace{1cm}
+\begin{table}[h]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{\textbf{Day1}} & \multicolumn{2}{c|}{\textbf{Day2}} & \multicolumn{2}{c|}{\textbf{Day3}} & \multicolumn{2}{c|}{\textbf{Day4}} & \multicolumn{2}{c|}{\textbf{Day5}} \bigstrut\\
+			\hline
+			Algorithm & Planning & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} \bigstrut\\
+			\hline
+			\multirow{3}[6]{*}{\textbf{RRT*}} & \textit{Global}  & 9.93  & 35.361 & 9.13  & 60.924 & 10.10 & 51.197 &  \textcolor{red}{None}     &  \textcolor{red}{None}     & 10.61  & 59.267 \bigstrut\\
+			\cline{2-12}          & \textit{Local} & 9.49  & 11.053 & 9.07  & 12.595 & 10.08 & 6.240 & 10.25 & 8.346 & 9.99  & 12.013 \bigstrut\\
+			\cline{2-12}          & \textit{Sum} & \textcolor{red}{None}  & \textcolor{red}{None}  & 10.95 & 5.125 & 11.01 & 7.037 & 10.76 & 9.617 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\hline
+			\multirow{3}[6]{*}{\textbf{A*}} & \textit{Global}  & 10.10 & 35.100 & 9.98  & 41.236 & 10.99 & 39.342 &  \textcolor{red}{None}     &  \textcolor{red}{None}     & \textcolor{red}{None}     &  \textcolor{red}{None} \bigstrut\\
+			\cline{2-12}          & \textit{Local} & 10.10 & 3.361 & 9.98  & 4.157 & 10.99 & 3.421 & 10.47 & 4.028 & 10.35 & 7.469 \bigstrut\\
+			\cline{2-12}          & \textit{Sum} & \textcolor{red}{None}  & \textcolor{red}{None}  & 11.75 & 3.597 & 12.27 & 3.690 & 11.24 & 3.305 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\hline
+			\multirow{3}[6]{*}{\textbf{APF}} & \textit{Global}  & 9.70  & 4.262 & 8.80  & 11.195 & 10.23 & 4.029 &  \textcolor{red}{None}     &  \textcolor{red}{None}     &  \textcolor{red}{None}     &  \textcolor{red}{None} \bigstrut\\
+			\cline{2-12}          & \textit{Local} & 10.15 & 0.722 & 9.00  & 0.767 & 10.10 & 0.661 & 10.62 & 1.259 & 10.61 & 1.381 \bigstrut\\
+			\cline{2-12}          & \textit{Sum} & \textcolor{red}{None}  & \textcolor{red}{None}  & 11.63 & 1.016 & 11.78 & 1.024 & 11.13 & 1.140 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\hline
+	\end{tabular}}%
+	\caption{Argentario survey - Travel and computing time}
+	\label{tab:addlabel}%
+\end{table}%
+\begin{figure}[H]
+	\centering 
+	\subfloat[Day 1 - \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day1s.png}\label{day1s}}
+	\hspace{0.1cm}
+	\subfloat[Day 1 - \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day1g2.png}\label{day1g}}
+	\hspace{0.1cm}
+	\subfloat[Day 1 -  \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day1l.png}\label{day1l}}
+	\vspace{0.0cm}
+	\caption{Argentario survey - Day 1} 
+	\label{Survey1}
+\end{figure}
+\newpage
+\begin{figure}[H]
+	\centering
+	\subfloat[Day 2 -  \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day2s.png}\label{day2s}}
+	\hspace{0.1cm}
+	\subfloat[Day 2 -  \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day2g2.png}\label{day2g}}
+	\hspace{0.1cm}
+	\subfloat[Day 2 -  \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day2l.png}\label{day2l}}
+	\hspace{0.1cm}
+	\subfloat[Day 3 -  \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day3s.png}\label{day3s}}
+	\hspace{0.1cm}
+	\subfloat[Day 3 -  \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day3g2.png}\label{day3g}}
+	\hspace{0.1cm}
+	\subfloat[Day 3 -  \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day3l.png}\label{day3l}}
+	\hspace{0.1cm}
+	\subfloat[Day 4 -  \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day4s.png}\label{day4s}}
+	\hspace{0.1cm}
+	\subfloat[Day 4 -  \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day4g2.png}\label{day4g}}
+	\hspace{0.1cm}
+	\subfloat[Day 4 -  \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day4l.png}\label{day4l}}
+	\hspace{0.1cm}
+	\subfloat[Day 5 -  \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day5s.png}\label{day5s}}
+	\hspace{0.1cm}
+	\subfloat[Day 5 -  \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day5gnew.png}\label{day5g}}
+	\hspace{0.1cm}
+	\subfloat[Day 5 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day5l.png}\label{day5l}}
+	\vspace{0.0cm}
+	\caption{Argentario survey - Day 2 to 5} 
+	\label{Survey11}
+\end{figure}
+% Table generated by Excel2LaTeX from sheet 'Foglio1'
+\newpage
+\begin{table}[h]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{\textbf{Day 1}} & \multicolumn{2}{c|}{\textbf{Day 2}} & \multicolumn{2}{c|}{\textbf{Day 3}} & \multicolumn{2}{c|}{\textbf{Day 4}} & \multicolumn{2}{c|}{\textbf{Day 5}} \bigstrut\\
+			\hline
+			Algorithm & Planning & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} \bigstrut\\
+			\hline
+			\multirow{3}[6]{*}{\textbf{RRT*}} & \textit{Global}  & 8.76  & 28.301 & 8.59  & 40.481 & 8.78  & 31.269 & \textcolor{red}{None}     & \textcolor{red}{None}     & \textcolor{red}{None}     & \textcolor{red}{None} \bigstrut\\
+			\cline{2-12}          & \textit{Local} & 8.51  & 10.719 & 8.56  & 9.615 & 8.94  & 4.550 & 8.61  & 6.085 & 8.47  & 8.093 \bigstrut\\
+			\cline{2-12}          & \textit{Sum} & \textcolor{red}{None}  & \textcolor{red}{None}  & 9.01  & 3.984 & 8.98  & 3.922 & 8.83  & 2.807 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\hline
+			\multirow{3}[6]{*}{ \textbf{A*}} & \textit{Global}  & 8.65  & 31.229 & 8.52  & 36.585 & 9.53  & 36.032 & \textcolor{red}{None}     & \textcolor{red}{None}     & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\cline{2-12}          & \textit{Local} & 8.65  & 3.198 & 8.52  & 4.360 & 9.53  & 3.647 & 9.03  & 4.333 & 8.65  & 6.111 \bigstrut\\
+			\cline{2-12}          & \textit{Sum} & \textcolor{red}{None}  & \textcolor{red}{None}  & 9.78  & 3.610 & 9.79  & 3.951 & 9.28  & 3.620 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\hline
+			\multirow{3}[6]{*}{\textbf{APF}} & \textit{Global}  & 8.39  & 3.912 & 8.11  & 5.103 & 8.74  & 4.611 & \textcolor{red}{None}  & \textcolor{red}{None} & \textcolor{red}{None}     & \textcolor{red}{None} \bigstrut\\
+			\cline{2-12}          & \textit{Local} & 8.30  & 0.951 & 8.11  & 0.690 & 9.45  & 0.668 & 8.70  & 0.827 & 8.30  & 1.237 \bigstrut\\
+			\cline{2-12}          & \textit{Sum} & \textcolor{red}{None}  & \textcolor{red}{None}  & 9.56  & 0.756 & 9.35  & 0.638 & 9.36  & 0.953 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\hline
+	\end{tabular}}%
+	\caption{Elba Island survey - Travel and computing time}
+	\label{tabellaelba}
+\end{table}%
+\vspace{1cm}
+\begin{figure}[h]
+	\centering 
+	\subfloat[Day 1 -  \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day1_2s.png}\label{day12s}}
+	\hspace{0.1cm}
+	\subfloat[Day 1 -  \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day1_2g2.png}\label{day12g}}
+	\hspace{0.1cm}
+	\subfloat[Day 1 -  \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day1_2l.png}\label{day12l}}
+	\hspace{0.1cm}
+	\subfloat[Day 2 -  \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day2_2s.png}\label{day22s}}
+	\hspace{0.1cm}
+	\subfloat[Day 2 -  \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day2_2g2.png}\label{day22g}}
+	\hspace{0.1cm}
+	\subfloat[Day 2 -  \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day2_2l.png}\label{day22l}}
+	\vspace{0.0cm}
+	\caption{Elba Island survey - Day 1 to 2} 
+	\label{Survey2}
+\end{figure}
+\newpage
+\begin{figure}[H]
+	\centering
+	\subfloat[Day 3 -  \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day3_2s.png}\label{day32s}}
+	\hspace{0.1cm}
+	\subfloat[Day 3 -  \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day3_2g2.png}\label{day32g}}
+	\hspace{0.1cm}
+	\subfloat[Day 3 -  \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day3_2l.png}\label{day32l}}
+	\hspace{0.1cm}
+	\subfloat[Day 4 -  \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day4_2s.png}\label{day42s}}
+	\hspace{0.1cm}
+	\subfloat[Day 4 -  \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day4_2gnew.png}\label{day42g}}
+	\hspace{0.1cm}
+	\subfloat[Day 4 -  \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day4_2l.png}\label{day42l}}
+	\hspace{0.1cm}
+	\subfloat[Day 5 -  \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day5_2s.png}\label{day52s}}
+	\hspace{0.1cm}
+	\subfloat[Day 5 -  \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day5_2g2.png}\label{day52g}}
+	\hspace{0.1cm}
+	\subfloat[Day 5 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day5_2l.png}\label{day52l}}
+	\vspace{0.0cm}
+	\caption{Elba Island survey - Day 3 to 5} 
+	\label{Survey22}
+\end{figure}
+% Table generated by Excel2LaTeX from sheet 'Foglio1'
+
+%As can be seen there are 30 plots: every day of simulation has 3 figures side by side that represent each planning approach by comparison. 
+%There should be theoretically one point every $\Delta t=1$ hour of travel, but in practice, especially for RRT* (since it does not use geographical coordinates), they are not completely accurate.\\ 
+%From the figures, as a first glance, we can state that the three algorithms produce similar paths. 
+%During the plannings of second survey area, time difference is less evident, but the problem related to path generation still remains.\\ 
+The comparison between the spatio-temporal approaches points out that the paths of \textbf{\textit{Sum}} are clearly longer, and the time difference can be even 2 hours (see Day 2 in Table \ref{tab:addlabel}). Furthermore, this approach is heavily influenced by marine forecasts. For example, on Day 1 and 5 (Figure \ref{day1s} and \ref{day5s}), the presence of unsafe regions is so high that it cannot generate any path. In this case, the assurance of safety heavily affects the approach's efficiency.
+
+Regarding \textbf{\textit{Global}} and \textbf{\textit{Local}}, the results are quite compatible limited to the completed paths. In fact, the former usually fails the planning (see Figure \ref{day4g}, \ref{day5g}, \ref{day42g}, \ref{day52g}): it does not realize how waves change until it enters into the unsafe area.
+As can be seen, it can happen that in a single day, not all of the algorithms manage to reach the destination with \textbf{\textit{Global}}. The reason is that the maps generated by this approach are directly related to the resulting paths. Therefore different outcomes derive from the progress of the nautical routes.
+% which means that the final path will never coincide between each other and so their performance will not be equal.
+\subsection{Performance evaluation}
+As mentioned previously, the three key metrics are \textbf{travel time}, \textbf{efficiency}, and \textbf{safety}. The former determines the effectiveness of the path in terms of spent time and energy consumption. It is computed by summing the geodetic distances between every subsequent way-points of the path. \\
+The other two indexes are used to evaluate the spatio-temporal approaches for the navigation of the USV. The first reports the percentage of finding a viable path, while the other is the percentage of the navigation safety to minimize potential risks. The ratio between the navigable days and the entire set of days determines the efficiency of the approach, which will change depending on the accuracy in estimating obstacles' positions. At the same time, the safety index is intrinsic in the development of the approach, except for \textbf{\textit{Local}}, as explained in the previous chapter. 
+% , which depend on the forecast map considered,
+Figure \ref{compalg} and \ref{compapproach} show in detail the statistical comparison of the travel time among the various approaches and algorithms, with a prominence to the percentage change to the fastest approach\slash algorithm. To follow, two barplots and a 2D chart depict the results of the efficiency and safety. 
+
+Results of the travel time show that \textbf{\textit{Global}} and \textbf{\textit{Local}} generate paths of similar lengths, proved by a maximum percentage variation of 2.3\% with respect to the fastest route with RRT* (see Table \ref{tablecompalg}). Although the difference is small, it is clear how relying on the forecast leads to more efficient and shorter paths.\\
+In the algorithm comparison, RRT* achieves best results both with \textbf{\textit{Sum}} and \textbf{\textit{Local}}, and differs from APF by less than 3\% with \textbf{\textit{Global}}. The reason is related to the better re-planning performance of the potential field method than the other algorithms.  
+
+  
+%However the \textbf{\textit{Sum}} and \textbf{\textit{Global}}'s outcome are biased by fewer data used due to the lack of complete paths. Normally, avoiding considering obstacle prediction would lengthen the route. In this case, it is better to rely on the efficiency and safety index before reading these results.
+%The two histograms below compare data from the two tables: each bar includes travel time and computing time of the algorithms during five days for two destinations. The difference between local and global approach can be approximately considered negligible. But in practice the latter can be unfeasible. Instead the difference in computing time is considerable, because of how this algorithm is structured: it does repeated plannings until arriving at the goal, while the others do only one.
+\newpage
+\begin{figure}[H]
+	\centering 
+	\subfloat{\includegraphics[width=0.30\textwidth]{Figures/barrrtnew3.png}\label{rrtcomp}}
+	\hspace{0.2cm}
+	\subfloat{\includegraphics[width=0.30\textwidth]{Figures/barastarnew3.png}\label{astarcomp}}
+	\hspace{0.2cm}
+	\subfloat{\includegraphics[width=0.30\textwidth]{Figures/barapfnew3.png}\label{apfcomp}}
+	\captionsetup{font=footnotesize,labelfont=footnotesize}
+	\caption{Comparison of travel time among the various approaches divided by algorithms} 
+	\label{compalg}
+\end{figure}
+
+\begin{table}[htbp]
+	\small
+	\centering
+	
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{3}{*}{}  & \multicolumn{2}{c|}{\textbf{RRT*}} & \multicolumn{2}{c|}{\textbf{A*}} & \multicolumn{2}{c|}{\textbf{APF}} \bigstrut\\
+		\cline{2-7}
+		& \multirow{2}{*}{\parbox{3em}{\centering \small Mean $T_{path}$($h$)}} & \multirow{2}{*}{\parbox{4em}{\centering \scriptsize Variation (\%) w.r.t. $min(T_{path})$}} & \multirow{2}{*}{\parbox{3em}{\centering \small Mean $T_{path}$($h$)}} & \multirow{2}{*}{\parbox{4em}{\centering \scriptsize Variation (\%) w.r.t. $min(T_{path})$}} & \multirow{2}{*}{\parbox{3em}{\centering \small Mean $T_{path}$($h$)}} & \multirow{2}{*}{\parbox{4em}{\centering \scriptsize Variation (\%) w.r.t. $min(T_{path})$}} \bigstrut[t]\\
+		&   &   &   &   & & \bigstrut[b]\\
+		\hline
+		\small \textit{Sum} & 9.6  & 7.3   & 10.4   & 8.2  & 10.5   & 13.5 \bigstrut\\
+		\hline
+		\small \textit{Global} & 9.2  & 2.3   & 9.7   & 0.4   & 9.3   & 0.4 \bigstrut\\
+		\hline
+		\small \textit{Local} & \textbf{9.0}  & \textbf{0.0}   & \textbf{9.62}   & \textbf{0.0}   & \textbf{9.23}   & \textbf{0.0} \bigstrut\\
+		\hline
+	\end{tabular}%
+	\captionsetup{font=footnotesize,labelfont=footnotesize}
+	\caption{Data comparison of travel time among the various approaches divided by algorithms}
+	\label{tablecompalg}%
+\end{table}%
+
+\begin{figure}[h]
+	\centering
+	\subfloat{\includegraphics[width=0.30\textwidth]{Figures/barsumnew3.png}\label{sumcomp}}
+	\hspace{0.2cm}
+	\subfloat{\includegraphics[width=0.30\textwidth]{Figures/barglonew3.png}\label{glocomp}}
+	\hspace{0.2cm}
+	\subfloat{\includegraphics[width=0.30\textwidth]{Figures/barlocnew2.png}\label{loccomp}}
+	\captionsetup{font=footnotesize,labelfont=footnotesize}
+	\caption{Comparison of travel time among the various algorithms divided by approaches} 
+	\label{compapproach}
+\end{figure}
+
+\begin{table}[htbp]
+	\small
+	\centering
+	
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{3}{*}{}  & \multicolumn{2}{c|}{\textit{Sum}} & \multicolumn{2}{c|}{\textit{Global}} & \multicolumn{2}{c|}{\textit{Local}} \bigstrut\\
+		\cline{2-7}
+		& \multirow{2}{*}{\parbox{3em}{\centering \small Mean $T_{path}$($h$)}} & \multirow{2}{*}{\parbox{4em}{\centering \scriptsize Variation (\%) w.r.t. $min(T_{path})$}} & \multirow{2}{*}{\parbox{3em}{\centering \small Mean $T_{path}$($h$)}} & \multirow{2}{*}{\parbox{4em}{\centering \scriptsize Variation (\%) w.r.t. $min(T_{path})$}} & \multirow{2}{*}{\parbox{3em}{\centering \small Mean $T_{path}$($h$)}} & \multirow{2}{*}{\parbox{4em}{\centering \scriptsize Variation (\%) w.r.t. $min(T_{path})$}} \bigstrut[t]\\
+		&   &   &   &   & & \bigstrut[b]\\
+		\hline
+		\small \textbf{RRT*}   & \textbf{10.1}  & \textbf{0.0}   & 9.3   & 2.9   & \textbf{9.3}   & \textbf{0.0} \bigstrut\\
+		\hline
+		\small \textbf{A*}    & 10.7  & 5.9   & 9.5   & 4.9   & 9.8   & 4.9 \bigstrut\\
+		\hline
+		\small \textbf{APF}   & 10.5  & 4.7   & \textbf{9.1}   & \textbf{0.0}   & 9.5   & 2.3 \bigstrut\\
+		\hline
+	\end{tabular}%
+	\captionsetup{font=footnotesize,labelfont=footnotesize}
+	\caption{Data comparison of travel time among the various algorithms divided by approaches}
+	\label{tablecompapproach}%
+\end{table}%
+\newpage
+The values illustrated in Figure \ref{compeffsaf1} and \ref{measureeffsaf} show that the efficiency of \textbf{\textit{Sum}} and \textbf{\textit{Global}} is respectively of 56.9 and 52.8\%, while 87.5\% for \textbf{\textit{Local}}. Taking as reference the latter, which represents the ideal approach that always finds a feasible path thanks to its strong assumption on safety, the first two approaches work approximately 35 \% and 40\% worse. 
+\begin{figure}[H]
+	\centering 
+	\subfloat[Efficiency index]{\includegraphics[width=0.45\textwidth]{Figures/efficiencybar1.png}\label{eff}}
+	\hspace{0.3cm}
+	\subfloat[Safety index]{\includegraphics[width=0.45\textwidth]{Figures/safetybar1.png}\label{saf}}
+	\vspace{0.0cm}
+	\captionsetup{font=footnotesize,labelfont=footnotesize}
+	\caption{Comparison of performance metrics between the 3 spatio-temporal approaches} 
+	\label{compeffsaf1}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=85mm]{Figures/safety_eff.png}
+	\caption{Safety-efficiency chart}
+	\label{measureeffsaf}
+\end{figure} 
+% \caption{Measure of safety and efficiency of the algorithms} 
+%\begin{figure}[h]
+%	\centering
+%	\subfloat[Travel planning success ratio]{\includegraphics[width=0.46\textwidth]{Figures/planning_new.png}\label{planningratio}}
+%	\hspace{0.1cm}
+%	\subfloat[Safety-efficiency chart]{\includegraphics[width=0.46\textwidth]{Figures/safety_eff.png}\label{safetyeff}}
+%	\caption{Measure of safety and efficiency of the algorithms} 
+%	\label{measureeffsaf}
+%\end{figure}
+
+As said before, the safety index is related to the type of approach: 
+\begin{itemize}[itemsep=0pt]
+	\item \textbf{\textit{Sum}} has a 100\% safety because it overestimates the risk of the waves by considering all predictions at any moment of the navigation;
+	\item \textbf{\textit{Global}} has a 100\% safety too since the algorithm prevents sailing in case of possible sinkings;
+	\item In Figure \ref{compeffsaf1}, \textbf{\textit{Local}}'s bar indicates safety of around 70\%, as confirmed in the chart of Figure \ref{measureeffsaf}. This value was computed by detecting potential collisions of the generated paths with the hourly forecasts. 
+\end{itemize}
+% and \textbf{\textit{Global}} have a value of 100\%, while \textbf{\textit{Local}}, due to its strong assumption regarding its operation,  a focus entirely on the safety at the expense of the efficiency.
+%This value, besides the possibility of navigation during the day, depends on the probability of finding the goal in safe zone when the vessel will arrive there. 
+ 
+In conclusion, considering the results of the algorithm comparison in \autoref{second} and of the actual real simulations, RRT* turns out to be the preferable algorithm for this study. %Instead, we should exclude the potential field method, which is not good in this application, despite of its ability to turning around circle obstacles and its low computing time.
+For the spatio-temporal approaches we can conclude that:
+\setstretch{1.4}
+\begin{itemize}[itemsep=0pt]
+	% [\color{green}{\cmark}]
+	\item [\textbf{\textit{Sum}}]
+	\item[\color{green}{\cmark}] Resulting paths are always in safe zone;
+	\item[\color{red}{\xmark}] It is too conservative since efficiency and travel time performance are low;
+	\item[\color{red}{\xmark}] As long as the goal is in high waves in one time window, the vessel does not sail.
+	\item [\textbf{\textit{Global}}]
+	\item[\color{green}{\cmark}] No approximation in the map generation since all time windows are considered independently;
+	\item[\color{green}{\cmark}] High travel time performance in case it reaches destination;
+	\item[\color{red}{\xmark}] Forecasts are not considered: low efficiency due to potential sinkings that could be avoided. 
+	\item[\textbf{\textit{Local}}]
+	\item[\color{green}{\cmark}] High efficiency and travel time performance;
+	\item[\color{red}{\xmark}] Too strong assumption, not sufficient to always ensure USV safety, because $f_1 \geq t_1$ (view in Figure \ref{localassumption}).
+\end{itemize}
+\begin{figure}[h]
+\centering
+\includegraphics[width=60mm]{Figures/localband.png}
+\caption{\textbf{\textit{Local}}'s assumption}
+\label{localassumption}
+\end{figure}
+\setstretch{1.5}
+\section{Summary}
+These spatio-temporal approaches, designed to predict changing shape obstacles, have highlighted issues that prevent their use in real applications.
+
+Considering all marine forecasts \textit{a priori} cannot be feasible because the overestimation strongly reduces performance. As well as ignoring future wave predictions, given that relying on reactive planning when marine conditions change can cause delays or possible failures (\textbf{\textit{Sum}} and \textbf{\textit{Global}} have an efficiency below 60\%). This latter could be applicable if the temporal resolution of NetCDF files were smaller, resulting in a higher re-planning frequency.\\ \textbf{\textit{Local}} represents the approach that maximizes the efficiency of the travel at the cost of safety. Indeed, it is based on an assumption that cannot be applied in reality. The results show the need to develop an advanced method that firstly ensures USV safety and then converges to the \textbf{\textit{Local}}'s value of efficiency. In the next chapter, we will discuss it.
+
+%From the results, global planning fails sometimes to find a feasible path since it does not consider the forecasts, and so it can be in a place which is not safe when map changes.
+%To conclude, global planning in this study is not useful, not considering forecast causes to find not feasible path. Sum planning, that means a planning where I consider all forecast in a single map finds a feasible path when the goal is in a safe location all the time and there is always a route to reach it. Moreover it's not optimal at all. 
+%\textbf{\textit{Sum}}, \textbf{\textit{Global}} , and \textbf{\textit{Local}} , are three methods designed to deal with the prediction of changing shape obstacles. As seen, they are not optimal. Furthermore, they do not always guarantee the USV safety. 
+

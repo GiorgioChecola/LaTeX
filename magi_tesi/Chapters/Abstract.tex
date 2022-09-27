@@ -1,0 +1,96 @@
+%during which they have to select missions, decide routes and optimize operation time 
+In the last years, the development of autonomous systems technology in the maritime industry has increased rapidly. This growing activity comes mainly from their application in environmental monitoring, during which the vehicle makes bathymetric surveys, gathers oceanographic and meteorological data, and conducts seabed mapping.
+The feasibility of these operations depends on weather conditions, which represent one of the most critical risks for the sea navigation of marine vessels, especially small sizes.
+Their relatively low weight increases the vulnerability to adverse sea conditions, often considered external forces in the vessel's kinetic model. 
+On the other hand, considering sea weather forecasts at the beginning could help the decision-making system take human-like decisions to improve target selection, mission efficiency, and route optimization.
+\vspace{0.3cm}\\
+Based on the studies of weather avoidance in aviation and the literature on spatio-temporal trajectory planning of autonomous cars, this thesis has focused on developing an algorithmic approach that determines the best navigation strategy depending on marine weather forecasts. The proposed methodology used sea forecast data, made available by Copernicus Marine Service as NetCDF files.
+\vspace{0.3cm}\\
+The concept consisted in creating specific forecast maps that included the wave heights predicted for the following hours as time-varying $\mathcal{C}_{obs}$ unsafe areas. We initially designed three spatio-temporal approaches and, based on the results, conceived an improved version of map generation.
+The maps were then used to find deliberative paths in the Tyrrhenian sea area.
+\vspace{0.3cm}\\
+Three algorithms performed path planning, i.e., the improved version of Rapidly-Exploring Random Tree (RRT*), A*, and the Artificial Potential Field (APF), on which we made a comparison to evaluate their performances.
+We present simulation results obtained during several days of navigation, assessing path length, probability of finding a viable path, and USV safety. 
+\vspace{0.3cm}\\
+Besides achieving excellent route length results, the last proposed spatio-temporal approach accurately describes wave heights without overestimating the obstacles' positions, ensuring the boat navigation safety. It represents, therefore, an efficient solution for considering hourly weather forecasts in a path planning problem, paving the way for the enhancement of robotic perception towards the surrounding environment.
+
+%aprendo la strada a una pianificazione piu incentrata sui fenomeni ambientali che potrebbero influire su il 
+
+%The last proposed spatio-temporal approach has achieved excellent route length results for considering hourly weather forecasts in a path planning problem. Besides achieving excellent route length results, the map accurately describes wave heights without overestimating the obstacles' positions, ensuring the boat navigation safety.
+%represents the most efficient method for considering hourly weather forecasts in a path planning problem. 
+
+%In conclusion, Potential implications of this study range from improving shipping and monitoring operations to minimizing human contribution and collision risk at sea.
+%Further work should cover boat's behavior while effectively in motion
+%A possible application could help increasing the autonomy of autonomous vessels at sea during survey missions improvement of mission planning and autonomy in the operations of surface vessels.
+%The implementation of weather forecasts in the USV data sources can have potential implications for optimizing vessel operations.
+%and performance of the operations with implications for shipping and environmental monitoring companies.
+%Further work should examine the boat's behavior while effectively in motion. In this way 
+%Results have showed that it can assure   it has been determined that implementing weather forecasts  can modify navigation routes, improving mission planning and the safety of autonomous vessels.
+%improve route optimization and navigation safety, enhancing mission planning of autonomous vessels.
+%We run simulations over several days, assessing path length, probability of finding a viable path, and safety of navigation. Results show the effectiveness of finding a global path that predicts the motion of the wavefields \textit{a priori} without affecting the 
+
+%The improved approach successfully predicts the shifting of adverse weather in the nearest future and can have exciting applicability in this type of application.
+
+%to find  that performs path planning finding the best path with time-varying $\mathcal{C}_{obs}$ in order to select missions and optimize the route considering weather forecast \textit{a priori}. 
+%We initially designed three spatio-temporal approaches 
+% that could outperform them.
+
+%We designed four methods, the last of which is based on the performance results of the others.
+
+%in multidimensional array form stored in NetCDF format. 
+%\textbf{was perfected, was successfully implemented under extreme conditions, reproduced data with a precision of, additional advantages include, consist, demonstrates for the first time that, in contrast to reports in the literature}
+
+% Results of the improved methods have concluded that the proposed approach can find optimal paths for predicting the shifting of adverse weather in the nearest future and can have exciting applicability in this type of application.
+
+%We implemented three path planning algorithms, i.e., the improved version of Rapidly-Exploring Random Tree (RRT*), A*, and the Artificial Potential field (APF) which  
+%These forecast maps are employed by three different path planning algorithms that we compared: the improved version of Rapidly-Exploring Random Tree (RRT*), A*, and the Artificial Potential field to find the one that generates the best navigation route.
+
+
+%The region of interest, i.e., the configuration space, was deeply analyzed including conduction of Posidonia oceanica sensing and wave statistical analysis to understand best period to navigate, percentage of waves higher than the threshold considered, wave direction, etc.
+%3 general algorithms were chosen to perform path planning at the beginning since we didn't know how to treat sea factors and approach the problem.
+
+
+%From the results we considered appropriate to design a new method that could outperform the initial ones allowing its use in real applications.
+%The improved approach, based on the performance of the other three, have obtained excellent results: 100\% safety and 85.3 efficiency reaching to find a path in all cases where it was possible.
+%on which perform path planning: compares three types of path planning algorithms, Rapidly-Exploring Random Tree (RRT), Artificial Potential field and A*, to plan efficient and safe routes with hourly spatio-temporal forecasts. Each algorithm has been modified accordingly. 
+% of time-varying $\mathcal{C}_obs$ represented by risky sea waves.
+%The availability of this type of files allows to analyze more in depth our configuration space thanks to which we drew these conclusions. 
+
+%the navigation
+%often neglected or accounted for as external factors
+%In order to act as an autonomous system, the USV have to process the received data, analyze them, and make decisions. These actions are performed by the decision-making system.
+%As said, sea factors affect the navigation of these vehicles, especially if they are small. Often they are seen as disturbances on which some kind of control system is applied.
+%During survey monitoring, it represents an even greater problem. The autonomy of these drones consists also in autonomous decision-making in order to substitute the human contribution.
+%Decide when and where analyze a particular spot taking into account several environmental data could help to accelerating these operations and making these vehicles more and more autonomous.\\
+%abstract: condensed version of your overall story. poi nt out all the major features of the investingation
+
+
+
+%Unmanned vehicles are now everywhere in our today life to help making autonomous human operations. The sea has always been one of the greater uncertainties inherent in man. \\
+%Monitoring this environment and its depths can make new discoveries to help humans to counter problems related to climate change which is causing natural disaster in flora and fauna.\\
+%Autonomous surface vessels are accelerating this discovery process. 
+%External factors as environmental disturbances have always been considered in the dynamics of the vehicle. In this thesis these factors are considered in a new way: no more external forces, but obstacles from which the vehicle have to stay away. All this in the context of time optimization and safety purpose of small ASV, the more affected by marine weather. The vehicle receives weather data and plans the survey mission accordingly.
+
+
+
+%Domenico advices
+%\begin{itemize}
+%	\item Motiovation of what i did
+%	\item why i did it
+%	\item why it's important
+%	\item what is related to, future perspectives
+%\end{itemize}
+%parole utili: weather routing references, netcdf planning, spatio temporal planning, decision making, safety.why alteranative method to controller, how to take into account big maps of obstacles which move \\
+
+%Things to add in the thesis:
+%\begin{itemize}[itemsep=0pt]
+%	\item decide a variance in wave values to account for uncertainty
+%	\item compute cost as velocity + current velocity
+%	\item toy example without meteo data: limit cases in which sum global and local fail
+%	\item improved methods validating them with failure ratio (without images)
+%	\item study correlation betweeen current, waves direction, velocity etc
+%	\item static planning using current direction
+%	\item correcting APF algorithm
+%	\item RRT and A* cost function which increases with the dircetion of the current velocity
+%\end{itemize}
+  

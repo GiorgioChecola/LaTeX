@@ -1,0 +1,445 @@
+\label{second}
+This chapter presents an overview of navigation and path planning, focusing on the algorithms exploited in the thesis work.  Then, we move on to a theoretical background on marine weather forecasting and show how meteorological data can be considered and manipulated for application purposes.
+    
+\section{Path planning}
+\textbf{Path planning} is a critical part required to perform autonomous navigation. Besides it, the system needs to know its position and orientation, \textbf{localization}, its surroundings, \textbf{mapping}, and how to control its motion, \textbf{path following}. If any of these technologies were missing, the system would not work correctly \cite{sakai2018pythonrobotics}.\\
+Path planning is the ability of a robot to search for a feasible and efficient path by finding a series of way-points to navigate from the start to the end position in the configuration space. The path is generated to satisfy spatial constraints based on obstacle positions and specific optimization criteria like path length, time, safety, risk, and energy consumption \cite{vagale2021path}.
+
+The \textit{configuration space} $\mathcal{C}$ consists of free space $\mathcal{C}_{free}$, which contains all possible configurations (states) of the mobile system and the space occupied by obstacles $\mathcal{C}_{obs}$.
+%\subsection{path planning definition and other parts of autonomous navigation}
+\subsection{Global and local planning}
+The path planning problem can be divided into two types according to the known degree of environmental information:
+\begin{itemize}[itemsep=0pt]
+	\item \textit{Global} path planning;
+	\item \textit{Local} path planning.
+\end{itemize}
+The \textbf{global} path planning method can generate an optimal path from the initial state to the goal state based on a \textit{priori} knowledge of the environment (the position and shape of static obstacles are predetermined). It comprises the environmental map modeling and the path planning strategy.
+
+The \textbf{local} path planning method, also called dynamic re-planning, assumes that the position of the obstacles in the environment is unknown. Therefore, the vehicle perceives its surroundings and its state only through sensors \cite{LIU20201}. Based on the route made by the global planner, it recalculates the path, modifying the trajectory to avoid unknown and dynamic obstacles, including non-static environmental forces.
+This path planning strategy needs to be adjusted in real-time and can result in a deviation from the previously planned path or a change in speed.
+\subsection{Moving obstacle prediction}
+%Path planning with predictions is a type of local path planning.
+%Maneuvers around large static obstacles are first planned deliberatively using a global path planner while maneuvers around the smaller dynamic obstacles are later planned reactively using a local reactive trajectory planner.
+In a dynamic environment, by the time the vehicle reaches a particular point, an obstacle may no longer be there, or a new obstacle may appear. As time passes, a path found previously may not be the optimal path anymore. So, a recalculation is necessary.
+
+Typically, trajectory planning for USVs consists of a global path planning that plans the static obstacle avoidance and a local reactive trajectory planning for maneuvers around smaller dynamic obstacles. The Kalman filter can be a solution for predicting the ship's trajectory in this regard \cite{huang2020ship}.\\
+However, in our case, the dynamic obstacles, i.e., wavefields that can affect the navigation, are extremely large in size and need to be taken into account by the deliberative planning to improve decision-making, optimize the survey mission and the route, and avoid eventual collisions.
+%Predicting obstacle movement can be achieved embedding time in the pathfinding's cost function. However this modification is not perfect.
+\section{Path planning algorithms} 
+Based on Souissi \textit{et al.} \cite{souissi2013path}, path planning algorithms can take a \textit{classic} approach, an \textit{advanced} approach, or a \textit{hybrid} approach. The first class includes the algorithms that perform environmental modeling as a cell decomposition of the configuration space. Graph-based methods such as A* and Voronoi diagrams belong to this category.
+
+The algorithms with an advanced approach are commonly used to deal with dynamic obstacles, path re-planning, and local collision avoidance. Examples are machine learning algorithms, potential field methods, evolutionary algorithms, and sampling-based algorithms. The last category includes algorithms that combine several path planning methods.
+
+Choosing the appropriate algorithm helps to ensure safe and effective navigation. This choice depends on robot geometry and constraints, especially for nonholonomic systems. For this study, we decided to consider three different types:
+\begin{itemize}[itemsep=0pt]
+	\item A \textit{sampling-based algorithm} $\rightarrow$ RRT*;
+	\item A \textit{potential field method} $\rightarrow$ Artificial potential field;
+	\item A \textit{searching-based algorithm} $\rightarrow$ A*.
+\end{itemize}
+%The first two are classified as advanced algorithms because environmental modeling is not necessary (\cite{vagale2021path}, \cite{souissi2013path}). 
+\subsection{Rapidly-exploring Random Tree}
+RRT, the abbreviation of Rapidly-exploring Random Tree, is a sampling-based method introduced by LaValle \cite{lavalle1998rapidly} at the end of the 20th century for path planning purposes, specifically designed for problems that have nonholonomic constraints. 
+
+It works by creating a search tree incrementally by using random samples in a defined state space leading towards the goal. The algorithm follows these steps starting from the initial node $\mathbf{x}_{init}$:
+%RRT is the prime example of sampling-based algorithm. A search tree is created randomly by adding nodes in the state space following these steps:
+\begin{enumerate}[itemsep=0pt]
+	\item The planner samples a random node $\mathbf{x}_{rand}$ from the configuration space $\mathcal{C}$;
+	\item It finds the closest node of the search tree to $\mathbf{x}_{rand}$, $\mathbf{x}_{near}$;
+	\item The tree expands from $\mathbf{x}_{near}$ towards $\mathbf{x}_{rand}$ based on the expansion length, reaching $\mathbf{x}_{new}$;
+	\item The connection between $\mathbf{x}_{new}$ and $\mathbf{x}_{near}$ is checked for collision considering the size of the obstacles $r$;
+	\item If the path resides in $\mathcal{C}_{free}$, $\mathbf{x}_{new}$ is added to the tree. Otherwise, it is discarded;
+	\item The next iteration of the loop starts.
+\end{enumerate} 
+Progress in the direction of the goal is guaranteed by adding a bias factor, which means that the random node is the goal state with a probability based on a bias coefficient. Figure \ref{rrt} shows the tree with the most significant points.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=75mm]{Figures/rrt2.png}
+	\caption{RRT algorithm}
+	\label{rrt}
+\end{figure}
+
+RRT's improved version, RRT* \cite{karaman2011sampling}, can deliver the shortest possible path to the goal when the number of nodes approaches infinity. The basic principle is the same, but it introduces two new features which permit to obtain a shorter and smoother path:
+\begin{itemize}
+	\item \textit{Near neighbor search}: RRT* records the distance each node has traveled relative to its parent node, i.e., the cost of each node. When $\mathbf{x}_{new}$ is found, a neighborhood of nodes within a fixed ball radius from the new node is examined, and the node with the cheapest cost replaces the closest node;
+	\item \textit{Rewiring tree}: when $\mathbf{x}_{new}$ is connected to the cheapest neighbor, the neighbors are again examined to see if connecting $\mathbf{x}_{new}$ with one of these points is convenient. If so, $\mathbf{x}_{new}$ becomes the parent of a pre-existing node.
+\end{itemize} 
+
+The drawback is that it suffers from a reduction in performance. Due to the new two features, it takes much more time than the default version.
+\subsection{A*}
+A* is the most well-known pathfinding algorithm. It was developed in 1968 based on Dijkstra's algorithm and the GBFS (Greedy Best-First-Search) algorithm \cite{hart1968formal}.
+\begin{itemize}[itemsep=0pt]
+	%\item BFS calculates the shortest path in a unweighted graph reducing the number of visited edges
+	\item Dijkstra's algorithm prioritizes the node with the lowest cost, the node's distance from the source. It guarantees to find the shortest path;
+	\item GBFS uses a heuristic that estimates how far from the goal any node is, ignoring the path's cost so far. It runs much quicker than Dijkstra's algorithm but does not guarantee to find the shortest path.
+	%It selects the node closest to the goal at that time. 
+
+\end{itemize}
+A* works by creating weighted graphs connecting the start and the goal nodes. It overcomes the other two by combining their features: the heuristic $h(n)$, which gives additional information about the cost from node $n$ to goal, and the actual cost of the path $g(n)$. The heuristic underestimates the true cost generally using Manhattan distance or Euclidean distance. \\
+%A* explores each node based on the cost function 
+By minimizing $f(n)=g(n)+h(n)$, A* finds the path with the least cost. \\
+However, it does not give optimality when applied with a grid.
+
+%Hence, it perform an informed rather than uninformed search: the heuristic gives A* additional information about the cost from node $n$ to goal. 
+%where $n$ is the next node on the path, $g(n)$ the actual cost of the path from the start to node $n$, and $h(n)$ the heuristic.
+%use a queue to en-queue each path, looking at the neighbour with distance 1 and then distance 2 until the path is found (guaranteed the shortest). It , , which calculates the same thing in a weighted path a that uses a priority queue which will take the path that is ebst at a given time, 
+%It belongs to the category of Cell decomposition methods \cite{souissi2013path}} for which the first essential step is to model the environment before searching the optimal or feasible path.
+%Unlike Dijkstra priority is the distance of the node from start. The ideal priority should be distance + future cost. When there are obstacles, it is difficult to know the future cost. And so we use an heuristic which is an underestimate of the future cost. We are ingoring paths that in the best case are worse than the current path. 
+%one of the most efficient and popular graph search algorithm for finding paths in discrete grid maps.
+%This type of algorithm is appropriate when the vehicle can be considered as a point and no motion model or kinematic equation is involved in the planning stage
+\subsection{Artificial Potential Field method}
+The potential field method considers the configuration space $\mathcal{C}$ as a potential map $\bm{q}=(q_1,q_2)$ where the goal $\bm{q}_g$ has the lowest potential and the starting node the maximum one \cite{khatib1986real}. The total potential $U$ is the sum of an attractive and a repulsive potential, whose negative gradient $-\nabla U(\bm{q})$ indicates the most promising local direction of motion.
+\begin{equation}
+	U(\bm{q})=U_{att}(\bm{q}) + U_{rep}(\bm{q})
+\end{equation}
+The attractive potential has the objective of guiding the robot to the goal $\bm{q}_g$. Two possible functions are normally implemented: quadratic (or paraboloidal) and conical potential. 
+The quadratic potential works better in the proximity of $\bm{q}_g$, but increases indefinitely with the distance. A convenient solution is to combine the two profiles: conical far from $\bm{q}_g$ and quadratic close to $\bm{q}_g$. \\
+In order to maintain the continuity of the function, the final potential is defined as:
+\begin{equation}
+	U_{att}(\bm{q})=
+	\begin{dcases}
+		\frac{1}{2}\zeta d^2(\bm{q},\bm{q}_{goal}), & d(\bm{q},\bm{q}_{goal})\leq d^*_{goal} \\
+		d^*_{goal}\zeta d(\bm{q},\bm{q}_{goal}) -\frac{1}{2}\zeta(d^*_{goal})^2,  & d(\bm{q},\bm{q}_{goal}) > d^*_{goal} 
+	\end{dcases}
+\end{equation}
+where $\zeta$ is the attractive coefficient, and $d^*_{goal}$ the threshold distance where the potential function changes. Figure \ref{potentialfield} displays the differences between these functions.
+\begin{figure}[h]
+	\centering
+	\subfloat[Paraboloidal]{\includegraphics[width=0.4\textwidth]{Figures/potential1.png}\label{quad}} 
+	\hspace{0.2cm}
+	\centering
+	\subfloat[Conical]{\includegraphics[width=0.4\textwidth]{Figures/potential2.png}\label{conic}}
+	\hspace{0.2cm}
+	\subfloat[Paraboloidal + conical ]{\includegraphics[width=0.4\textwidth]{Figures/potential3.png}\label{quad+conic}}
+	\caption{Standard functions of the attractive potential} 
+	\label{potentialfield}
+\end{figure}
+
+The objective of the repulsive potential is to keep the robot away from $\mathcal{C}_{obs}$. Each obstacle has a repulsive field which decreases with the distance, defined as follows:
+\begin{equation}
+	U_{rep}(\bm{q})=
+	\begin{dcases}
+		\frac{1}{2}\eta \left(\frac{1}{D(\bm{q})}-\frac{1}{Q^*}\right)^2 & D(\bm{q})\leq Q^* \\
+		0 & D(\bm{q})> Q^*
+	\end{dcases}
+\end{equation}
+where $\eta$ is the repulsive coefficient, $D(\bm{q})$ the distance of the robot from the obstacle, and $Q^*$ its size, i.e., the radius of influence.
+
+%\begin{equation}
+%	\nabla U_{att}(q)=
+%	\begin{dcases}
+%		\zeta(q-q_{goal}), & d(q,q_{goal})\leq d^*_{goal} \\
+%		\frac{d^*_{goal}\zeta(q-q_{goal})} {d(q,q_{goal})}  & d(q,q_{goal} > d*_{goal} 
+%	\end{dcases}
+%\end{equation}
+
+%\begin{equation}
+%	\begin{split}
+%		\nabla U_{att}(q)=\nabla (\frac{1}{2}k_{att}d^2(q,q_{goal}))=\\
+%		& \frac{1}{2}\nabla d^2(q,q_{goal})=\\
+%		& k_{att}d(q,q_{goal})
+%	\end{split}	
+%\end{equation}
+
+%\begin{equation}
+%	\nabla U_{rep}(q)=
+%	\begin{dcases}
+%		\eta \left(\frac{1}{Q*}-\frac{1}{D(q)}\right) \frac{1}{D^2(q)}\nabla D(q) & D(q)\leq Q* \\
+%		0 & D(q)> Q*
+%	\end{dcases}
+%\end{equation}
+
+The limitation of this algorithm is that it can get trapped easily in local minima, points where $-\nabla U(\bm{q}_m)=0$, primarily related to weight coefficients associated with each obstacle during the APF design.\\
+An approach to dealing with the minima trap replaces the repulsive action with tangential potential fields. This solution is possible using the limit cycle methodology and assigning a force field directly rather than a potential. 
+
+A \textit{limit cycle} is an isolated periodic orbit having the property that at least one other trajectory spirals into it for $t\rightarrow\pm\infty$ (Figure \ref{examplecycle}).\\
+%(see Equation \ref{eqvortex}).
+%A way to partially solve this problem is to create convex obstacles. (Principles of Robot Motion H. Choset et.al. Mit Press).\\
+%\begin{equation}\label{eqvortex}
+%	f_v = \pm \binom{\frac{\partial U_{r,i}}{\partial y}}{-\frac{\partial U_{r,i}}{\partial x}}
+%\end{equation}
+For this study, we relied on the algorithm proposed by \textit{Lounis Adouane} \cite{adouane:hal-01717955}, which uses the limit cycle characteristics of a 2nd-order nonlinear function to perform the obstacle avoidance behavior and overcome the local minima problem:\\
+\begin{minipage}{.5\linewidth}
+	\begin{align*}
+		\dot x_s &=y_s+ x_s(R_c^2 - x_s^2 - y_s^2) \\
+		\dot y_s &= -x_s + y_s(R_c^2 - x_s^2 - y_s^2)  
+	\end{align*}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+	\begin{align}
+		\begin{split}
+			\dot x_s &=-y_s+ x_s(R_c^2 - x_s^2 - y_s^2) \\
+			\dot y_s &=x_s + y_s(R_c^2 - x_s^2 - y_s^2)  
+		\end{split}
+	\end{align}
+\end{minipage}\\
+\vspace{0.3cm}\\
+The left equation indicates the clockwise trajectory motion and the other counter-clockwise direction; $R_c$ is the obstacle radius. \\
+At each instant of time, it takes the closest obstacle from the potentially disturbing ones, with distance $(x_s,y_s)$,  and calculates the direction of the vector field $(\dot x_s,\dot y_s)$ based on its position to the goal. An adjustable coefficient determines the force value.
+%is a closed trajectory in phase space having the property that at least one other trajectory spirals into it either as time approaches infinity or as time approaches negative infinity.
+\vspace{0.5cm}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=70mm]{Figures/limitcycle2.png}
+	\caption{Example of limit cycle}
+	\label{examplecycle}
+\end{figure} 
+\newpage
+\subsection{Algorithm settings}
+Starting from widespread open-source codes\footnote{\url{https://github.com/AtsushiSakai/PythonRobotics}}$^,$\footnote{\url{https://github.com/ShuiXinYun/Path_Plan}}, the three path planning algorithms have been adequately modified to adapt to the case study and make a comparison on an equal footing. Given the environmental files, which we will discuss later,  in array form, we employed their grid in latitude-longitude coordinates for A* and APF to have more realistic simulations.
+\subsubsection{RRT*}
+This algorithm bases its operation on computing distances and angles to move along the tree. Consequently, we preferred to use point coordinates ($x,y$) converted in meters instead of the georeferenced system to avoid unnecessary complications. The main adjustments were:
+\begin{itemize}[itemsep=0pt]
+	%\item Random nodes are selected from the points of the grid, used by A* and APF, to reduce the computing time;
+	\item The cost function returns the geodetic distance, as A* and APF do, despite the approximation of the sea surface by 2D plane;
+	\item Obstacles radius $r$ and expansion length $l$ are both equal to 4.5 $km$, which corresponds to the approximated conversion of the grid resolution (0.042°) along the longitude used by A* and APF;
+	\item Ball radius is set as $150\sqrt{\frac{ln(n)}{n}}$ $km$, where $n$ is the length of the path nodes list. By increasing the ball radius, the algorithm will examine a larger neighborhood of nodes, making the path smoother at the expense of a significant increase in computing time (see Figure \ref{changinggamma});
+	% \textcolor{red}{spiegare impatto sul planner, conseguenze su tempo di computaz, etc}
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\subfloat[Default ball radius: $t_{exec}=1.07$ $s$]{\includegraphics[width=0.45\textwidth]{Figures/rrtexam1.png}\label{Defaultballradius}} 
+	\hspace{0.2cm}
+	\centering
+	\subfloat[Bigger ball radius $t_{exec}=7.18$ $s$]{\includegraphics[width=0.45\textwidth]{Figures/rrtexam2.png}\label{biggerradius}}
+	\caption{Path difference changing the ball radius} 
+	\label{changinggamma}
+\end{figure}
+%Normally, with the defaults parameters, this algorithm would perform worse than the other two. Therefore, ball radius was properly tuned to create much smoother paths, at the expense of the computing time.
+\subsubsection{A*}
+%A* works when the environment does not change. It is not designed for dealing with moving obstacles.
+A* is grid-based and uses the $62\times47$ point grid in georeferenced coordinates. Hence, the grid size is set to $0.04166$° as well as for robot dimensions. Besides that, the heuristic $h(n)$ uses the geodetic distance, i.e., the shortest distance on the surface of an ellipsoidal model of the earth (computed with the \texttt{geopy} library).
+\subsubsection{APF}
+As with A*, the grid size is set to $0.04166$°. Instead, the radius of influence of the obstacles $R_c=2\cdot0.04166$° to avoid the vessel going through two nearby points.
+
+\section{Algorithm comparison}
+Once set all the parameters, we tested the three path planning algorithms, i.e., RRT*, A*, and APF, in 3 scenarios of area $100\times80$ km to evaluate their characteristics. The obstacles are represented by their shape, as will be done in the real simulations. 
+\begin{itemize}[itemsep=0pt]
+	\item \textbf{Scenario 1} represents a complex environment of islands;
+	\item \textbf{Scenario 2} includes two small slits through which the robot must go to reach the goal;
+	\item \textbf{Scenario 3} represents the U-shaped obstacle adapted to the marine environment.
+\end{itemize} 
+
+Figure \ref{basiccomparison} shows the resulting paths in the three scenarios. Table \ref{toyalgotable} displays the travel time $T_{path}(h)$, the mean of the three tests, and the variation from the fastest algorithm. The same results are present in the form of a barplot in Figure \ref{toyalgotraveltime}. 
+
+We will mainly focus on the travel time because the computing time is negligible compared to the time interval of the survey mission. The time spent for any re-planning of the global route cannot affect the vessel's navigation.
+
+Results show that the best algorithm in terms of path length is RRT* with a mean $T_{path}=7.1$ $h$, followed by A*, 2\% slower, and APF with a 17\% longer mean travel time. The goal attraction influences the potential field method, resulting in sub-optimal paths.
+
+Here we have seen only static obstacles. In order to deal with moving ones represented by adverse marine weather conditions, we first need to introduce the topic of sea forecasts. 
+\vspace{0.3cm}
+\begin{figure}[h]
+	\centering 
+	\subfloat[Scenario 1]{\includegraphics[width=0.47\textwidth]{Figures/toyalg1.png}\label{sc1}}
+	\hspace{0.2cm}
+	\subfloat[Scenario 2]{\includegraphics[width=0.47\textwidth]{Figures/toyalg2.png}\label{sc2}}
+	\hspace{0.5cm}
+	\subfloat[Scenario 3]{\includegraphics[width=0.47\textwidth]{Figures/toyalg3.png}\label{sc3}}
+	\vspace{0.0cm}
+	\caption{Algorithm comparison} 
+	\label{basiccomparison}
+\end{figure}
+\newpage
+% Table generated by Excel2LaTeX from sheet 'Foglio1'
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c?c|c|}
+		\hline
+		& \multicolumn{3}{c?}{\centering $T_{path}$($h$)} & \multirow{2}{*}{\parbox{3em}{\centering \small Mean $T_{path}$($h$)}} & \multirow{2}{*}{\parbox{4em}{\centering \scriptsize Variation (\%) w.r.t. $min(T_{path})$}} \bigstrut\\
+		\cline{1-4}    Algorithm & Scenario 1 & Scenario 2 & Scenario 3 &       &  \bigstrut\\
+		\hline
+		\textbf{RRT*} & \textbf{6.18} & \textbf{8.99} & \textbf{6.05} & \textbf{7.1} & \textbf{0.0} \bigstrut\\
+		\hline
+		\textbf{A*} & 6.18  & 9.05  & 6.41  & 7.2   & 2.0 \bigstrut\\
+		\hline
+		\textbf{APF} & 7.09  & 9.91  & 7.76  & 8.3   & 16.7 \bigstrut\\
+		\hline
+	\end{tabular}%
+	\caption{Quantitative results of the algorithm comparison}
+	\label{toyalgotable}%
+\end{table}%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=75mm]{Figures/toyalgtraveltime.png}
+	\caption{Comparison of travel time of the three algorithms}
+	\label{toyalgotraveltime}
+\end{figure} 
+\vspace{0.3cm}
+\section{Marine weather forecasting}
+Marine meteorology is a subfield of meteorology that deals with the weather and climate and the associated oceanographic conditions in the marine, island, and coastal environment.
+Marine meteorologists' job is to support marine and coastal activities, including but not limited to shipping, fishing, tourism, offshore oil drilling and mining operations, offshore wind and tidal energy harvesting, search and rescue at sea, and naval operations \cite{XIE2015287}. \\
+Marine weather programs were born towards the end of the 19\textsuperscript{th} century to determine requirements for safer ocean voyages and to avoid maritime disasters.
+\newpage
+\subsection{Weather prediction system and USV safety}
+A weather prediction system collects quantitative data about the current atmospheric and oceanic states, and predicts how they will evolve based on a scientific understanding of the atmospheric, oceanic, and air-sea interaction processes.\\
+Data acquisition is made through \textit{in situ} and ground-based observations, like weather ships and weather buoys, and with remote sensing from satellites of both the atmosphere and the sea surface.
+
+A marine weather forecast system typically consists of a suite of weather, ocean circulation, and forecast models of sea surface waves. The sea surface wave model, which will be mentioned again later, is driven by surface winds from an atmospheric model and provides forecasts for sea states, including significant wave heights and mean wave periods \cite{XIE2015287}. For local weather phenomena, it is better to rely on regional models: besides operating at finer resolutions, they provide the most benefits in areas where factors influence local weather, such as islands, coastlines, topography, and land coverage. The perfect example is the Mediterranean weather.
+
+%Regional model are better, especially in the places where usvs operate.In places where there are local weather phenomena due to mountains, islands, coastlines, topography and land coverage it's better to use regional models. Mediterranean weather is a true example for which it is recommended to consult regional models. regional models run over limited regions and manage to operate at finer resolutions down to 1 km.
+% \subsection{Forecasts for USV safety}
+While sailing in open water, an autonomous surface vessel, as well as crewed boats, especially of small size, faces many risks due to harsh weather conditions, which can affect the safety of the vehicle, travel time, and energy consumption \cite{vagale2021path}.
+Before planning a survey mission, scenarios such as bad weather situations or adverse ocean currents in the region of interest need to be considered.  
+
+The USV should be envisioned as an agent making strategic exploration decisions: it can take advantage of weather forecasts to plan missions, select targets, optimize routes by avoiding opposing currents and riding helpful ones, and plan energy efficient collision-free paths \cite{krell2020autonomous}. Therefore, we need to provide precise forecasts of the expected environmental disturbances (wind, waves, and current) to enrich the planning information system. 
+
+The thesis idea to face this problem is to use \textbf{NetCDF weather forecast data}, which can be easily handled in Python and integrated into whichever algorithm. In this study, as wave forecasts are driven by marine wind fields \cite{NICLASEN20101, XIE2015287}, and by assuming negligible surface currents for the boat speed, we will explicitly focus on waves.    
+\newpage
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=80mm]{Figures/sailingcoper.jpg}
+%	\caption{Example of small vessel}
+%	\label{sailing}
+%\end{figure}
+\subsection{NetCDF format}
+NetCDF, the acronym that stands for \textit{Network Common Data Form} is a set of software libraries, machine-independent data formats, and a community standard for sharing scientific data. It is commonly used in climatology, meteorology, oceanography, and GIS applications. The data in a NetCDF file is stored in the form of multidimensional arrays in georeferenced coordinates \cite{unicar} (Figure \ref{netcdf}). \\
+We used the Python package \texttt{xarray} that is particularly tailored to working with this type of data.
+
+\begin{figure}[h]
+	\centering 
+	\subfloat[Three-dimensional data example]{\includegraphics[width=0.6\textwidth]{Figures/netcdf3.png}\label{3ddata}}
+	\hspace{0.5cm}
+	\subfloat[Four-dimensional data example]{\includegraphics[width=0.6\textwidth]{Figures/netcdf4.png}\label{4ddata}}
+	\caption{Storage of NetCDF data} 
+	\label{netcdf}
+\end{figure}
+Copernicus Marine Service (CMS) provides free and open marine data and services to enable marine policy implementation and support Blue growth and scientific innovation. These data include hindcasts, nowcasts, and forecasts, delivered in NetCDF format (.nc).
+%Since my research project is focused on path planning and decision-making of autonomous surface vessels depending on marine weather, I decided to start from these data for modeling obstacles in the configuration space.
+%In this research project, I mainly made use of 3 Copernicus dataset:
+%\begin{itemize}[itemsep=0pt]
+%	\item Mediterranean Sea Physics Analysis And Forecast
+%	\item Mediterranean Sea Waves Analysis And Forecast
+%	\item Mediterranean Sea Biogeochemistry Analysis And Forecast
+%\end{itemize}
+%Focusing on Mediterranean Sea we find that
+%I considered as regional domain the Mediterranean Sea for obvious reasons, and also because it is very well monitored and many data are provided, like physics, waves, biochemistry analysis and forecasts, composed by hourly parameters updated daily.
+The dataset, \textit{Mediterranean Sea Waves Analysis And Forecast}, contains information ranging from 2019-05-04 to the present, with a spatial resolution of $0.042$°$\times0.042$°, an hourly instantaneous temporal resolution, and is updated two times a day.
+%(older information are in addition to the Reanalysis datasets, to deliver a complete and consistent picture of the past weather).
+  %Information in wave dataset refers to surface only.
+Wave data are produced by the Mediterranean Forecasting System (MFS), a numerical ocean prediction service that does analyses, reanalyses, and short-term forecasts for the entire Mediterranean Sea, based on the upgraded spectral wave model WAM Cycle 4.6.2. \\
+The wave system includes 2 forecast cycles providing a Mediterranean wave analysis twice per day and 10 days of wave forecasts \cite{copernicus}.
+\section{Significant wave height}
+%(https://marine.copernicus.eu/services/use-cases/sailgrib-ship-routing-application)
+Ocean data include a wide variety of parameters that cannot be considered all at once. Therefore, we took into account only the height of the waves, whose most important specification is the significant wave height, available with the acronym \texttt{VHM0}. This sea state product is critical for all maritime safety and rescue operations \cite{esa}.
+
+%Sea dynamics can be summarized in 3 main factors that need to be forecast for safety of vessel: sea wind, waves and current. Each of them is composed of many parameters to be accounted \cite{niclasen2010wave}.
+%Wind load is generally ignored in path planning since USVs have a high draft compared to an air projection area and operations are generally restricted in an environment with wind speed less than 10 m/s \cite{lee2015energy}.
+%Wave forecasting is conducted by the third-generation wave models, like WAM ("WAve Model"), WW3 ("WaveWatch III") and SWAN ("Simulating WAves Nearshore") after given them wind forecasts.
+Sea Surface Wave Significant Height (SWH, or $H_s$) is defined as \textit{a statistic computed from wave measurements and corresponds to the average height of the highest one third of the waves, where the height is defined as the vertical distance from a wave trough to the following wave crest} (definition by CF Standard Names \cite{cmip6}, expressed in Equation \ref{eq1}).
+\begin{equation}\label{eq1}
+	H_{1/3}=\frac{1}{N/3}\sum_{i=1}^{N/3}H_i
+\end{equation}
+$N$ is the number of individual wave heights, and $H_i$ is a series of wave heights ranked from highest to lowest. Looking at Figure \ref{wave}, which shows the statistical distribution of ocean wave height\footnote{\href{https://media.bom.gov.au/social/blog/870/ruling-the-waves-how-a-simple-wave-height-concept-can-help-you-judge-the-size-of-the-sea/}{Bureau of Meteorology}}, we can state that the most common waves are lower than $H_s$, but it is possible to encounter a wave that is much higher than the significant wave height.
+Nowadays, the more modern definition considers the frequency-domain analysis and is defined based on the zero moment, $m_0$, which is the area under the energy density spectrum curve \cite{BAI201673}.
+\begin{equation}\label{eq2}
+	H_{m0}=4\sqrt{m_0}
+\end{equation}
+%based on frequency-domain analysis it is usually defined as four times the standard deviation of the surface elevation – or equivalently as four times the square root of the zeroth-order moment (area) of the wave spectrum. 
+%In general, it includes both the waves formed by local wind and swell waves. 
+%It can be calculated with the following equation:
+%\begin{equation}
+%	H_{m0}=4\sqrt{m_0}=\sqrt{H_{wind}^2+H_{swell}^2}
+%\end{equation}
+%https://marine.copernicus.eu/news/new-satellite-wave-product-released)
+%https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-3-altimetry/overview/geophysical-measurements/significant-wave-height
+%\begin{itemize}
+%	\item https://www.stormgeo.com/products/s-suite/s-routing/articles/why-douglas-sea-state-3-should-be-eliminated-from-good-weather-clauses/
+%	\item https://it.wikipedia.org/wiki/Scala\_Douglas
+%	\item https://www.google.com/search?channel=nrow5\&client=firefox-b-d\&q=significant+wave+height+vessels
+%	\item https://www.meteorologiaenred.com/en/douglas-scale.html
+%\end{itemize}
+ 
+As we will discuss in \autoref{approach}, we considered the Tyrrhenian Sea as the navigation area. By manipulating the NetCDF files, we analyzed historical wave data for 2021 to see how the sea changes throughout the seasons and understand which is the best period to carry out missions at sea.\\
+We started by plotting the annual mean significant wave height, displayed in Figure \ref{annual}. It can be seen that the coast of Corsica shelters the region of interest, and higher values are concentrated in the upper and lower part of the black perimeter. %through a data resampling. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=70mm]{Figures/wavespectrum.jpg}
+	\caption{Wave statistical distribution}
+	\label{wave}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=100mm]{Figures/annualmeanregofint2.png}
+	\caption{Annual mean significant wave height in 2021}
+	\label{annual}
+\end{figure}
+By adding the mean wave direction (\texttt{VMDR}) of 2021, expressed in degrees from due north, we examined more in detail significant spots for routing, marked with black dots in the previous figure, through the wave rose. Meteorologists use this type of diagram to view how wave height and direction are distributed at a particular location over a specific period. The length of each spoke shows how often waves come \textit{from} that direction, expressed in percentage of occurrence, while the different colors provide information about the height.\\
+From Figure \ref{waverose}, we can see that most of the waves come from the South in all four cases, meaning that the vessel should pay particular attention to that exposed side of the boat. Higher waves occur mainly at Montecristo and Elba Island, the two points farther out to sea.
+%Most of the waves are generated from the South  The length of each color spoke stands for the percentage of the waves arriving from that particular direction. From the plots the majority of waves come from south east Gives information which are the wave height, the direction of the waves and the percentage of occurrence
+\begin{figure}[h]
+	\centering 
+	\captionsetup[subfloat]{oneside,margin={0.2cm,2cm}}
+	\subfloat[Harbour of Porto Vecchio]{\includegraphics[width=0.45\textwidth]{Figures/waverosestart.png}\label{waverose1}}
+	\hspace{0.3cm}
+	\captionsetup[subfloat]{oneside,margin={0.4cm,2cm}}
+	\subfloat[Montecristo Island]{\includegraphics[width=0.45\textwidth]{Figures/waverosemezzo.png}\label{waverose2}}
+	\hspace{0.3cm}
+	\captionsetup[subfloat]{oneside,margin={0.4cm,2cm}}
+	\subfloat[Argentario]{\includegraphics[width=0.45\textwidth]{Figures/waveroseend1.png}\label{waverose3}}
+	\hspace{0.3cm}
+	\captionsetup[subfloat]{oneside,margin={0.5cm,2cm}}
+	\subfloat[Elba Island]{\includegraphics[width=0.45\textwidth]{Figures/waveroseend2.png}\label{waverose4}}
+	\caption{Wave rose of significant spots} 
+	\label{waverose}
+\end{figure}
+
+After that, we computed a monthly and daily average of the bounded region, obtaining the charts in Figure \ref{mean}. Instead, the histogram in Figure \ref{histogram} shows the distribution of $H_{m0}$ and its kernel density estimation, which estimates the probability density function of the sea parameter. The number of the waves has been normalized, showing the percentage.
+
+Taking as reference Douglas scale, the so-called ``international sea and swell scale'', whose purpose is to estimate the roughness of the sea for navigation, the sea in this region can be categorized as \textit{slight} (3\textsuperscript{rd} degree of Douglas scale), as the annual mean of $0.84$ $m$ lies between $0.5$ and $1.25$ $m$. 
+\newpage
+\begin{figure}[H]
+	\centering 
+	\subfloat[Monthly mean significant wave height ]{\includegraphics[width=0.8\textwidth]{Figures/monthlymean.png}\label{monthly}}
+	\hspace{0.5cm}
+	\subfloat[Daily mean significant wave height ]{\includegraphics[width=0.8\textwidth]{Figures/dailymean.png}\label{daily}}
+	\caption{Mean significant wave height in 2021} 
+	\label{mean}
+\end{figure}
+%\begin{figure}[H]
+%	\centering 
+%	\subfloat[Number of observation for wave height]{\includegraphics[width=0.45\textwidth]{Figures/histogramhourlymean.png}\label{histdaily}}
+%	\hspace{0.5cm}
+%	\subfloat[Number of observation for wave height]{\includegraphics[width=0.45\textwidth]{Figures/histogramdailymean.png}\label{histhourly}}
+%	\caption{Mean significant wave height in 2021} 
+%	\label{hist}
+%\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=110mm]{Figures/histogramhourlymean.png}
+	\caption{Significant wave height distribution}
+	\label{histogram}
+\end{figure} 
+\noindent
+The best conditions are present during summer, where the mean value reaches a minimum of $0.5$ $m$ while the roughest sea is found in winter, particularly in January, where the significant wave height reaches a monthly peak of $1.3$ $m$, most probably due to seasonal strong winds and storms.
+Looking at Figure \ref{daily}, we can assume that other factors influence the sea conditions besides the time of year. 
+% I assumed to 0.8 m the threshold value of SWH, belonging to the 3 degree of the scale, slight. 
+%We can state that the season represents an important factor on sea waves leading to a calm sea
+%We can observe that higher values occur in colder months, while they are smaller in summer. The reason is most probably due to the atmospheric pressure, which produces respectively rain, wind and storms on the one hand, and calm and no precipitations on the other. \\
+%From , we can see the changes throughout the months. $H_{m0}$ can vary by over a meter in a month, leading to the conclusion that other factors come into play during this process. An idea is the influence that Lunar phases have on tidal waves. 
+%By noting that in a month the height can also change of 1.5 m (like in January) it's seems to be other factors besides the season. Most probably this is due to the tidal waves, bigger in the Lunar Phase of New Moon and Full Moon.
+%Finally in the last figure the distribution of wave values with their frequency. There are many wave between 0.4 and 0.8 m. In fact the annual mean is $H_{m0}=0.84m$.
+\section{Summary}
+This chapter describes the path planning problem and the three algorithms RRT*, A*, and APF. Tests were conducted in three different scenarios to evaluate their characteristics and have shown a better behavior of the first two algorithms than the potential field method to create a global path.
+
+When performing autonomous navigation at sea, the time-varying marine environment represents a crucial aspect to consider.
+Therefore, we introduce the field of marine meteorology and understand the importance of receiving good marine forecasts during navigation.
+An analysis of the significant wave height, the parameter on which this study will base, and the sea conditions in the Tyrrhenian Sea is reported.
+% June is not significant as the mean wave height is always smaller than 0.8m.\\
+
+
+\vspace{1cm}
+\begin{comment}
+	Copernicus data provide many other useful products about Mediterranean Sea. Besides the dataset on waves, sea physics is kept under observation and biogeochemistry too. For example, in the figure \ref{chloro} and \ref{zoo} the mass concentrations of Chlorofill and Phytoplankton Biomass in sea water are displayed.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=90mm]{Figures/Chlorofill.jpg}
+		\caption{Chlorofill}
+		\label{chloro}
+	\end{figure} 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=90mm]{Figures/Zooplankton.jpg}
+		\caption{Zooplankton}
+		\label{zoo}
+	\end{figure} 
+\end{comment}
+

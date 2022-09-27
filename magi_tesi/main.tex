@@ -1,0 +1,190 @@
+\documentclass[12pt,a4paper,twoside, openright]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, bm}
+\usepackage{algorithm2e}
+\usepackage{setspace}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\SetArgSty{textnormal}
+%\usepackage[noend]{algpseudocode}
+%\makeatletter
+%\def\BState{\State\hskip-\ALG@thistlm}
+%\makeatother
+%\usepackage{siunitx}
+\usepackage{mathcomp}
+\usepackage{graphicx}
+\usepackage{mathtools}  % for conditional equations
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks,urlcolor={NavyBlue},linkcolor={NavyBlue},citecolor={NavyBlue}} 
+\usepackage[numbers,sort&compress]{natbib}
+\bibpunct{\color{NavyBlue}[}{\color{NavyBlue}]}{,}{n}{}{;}
+\usepackage{caption}
+\captionsetup[table]{position=bottom}
+\usepackage{float}
+\usepackage{xurl}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{comment}
+\usepackage{lscape} 	% for large tables
+\usepackage{subfig}
+\usepackage{nomencl}
+\usepackage{enumitem}
+\renewcommand{\chapterautorefname}{Chapter}
+\usepackage{appendix}
+\usepackage{setspace}  % interlinea
+\usepackage{bigstrut}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm, bindingoffset=6mm]{geometry}
+\usepackage{verbatim}
+\usepackage{array}
+\newcolumntype{?}{!{\vrule width 2pt}}
+\usepackage{fancyhdr}
+\usepackage{emptypage} % serve per fare le pagine vuote tra un capitolo e l'altro
+%modifica intestazioni
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt} % piede
+\fancyhead{}
+\fancyhead[RO]{\slshape\nouppercase{\rightmark}}
+\fancyhead[LE]{\slshape\nouppercase{\leftmark}}
+% intestazioni il minuscolo
+%\renewcommand{\chaptermark}[1]{%
+%	\markboth{\chaptername
+%		\ \thechapter.\ #1}{}}	
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+\usepackage[T1]{fontenc}
+
+
+\begin{document}
+
+\input{Title page/Titlepage}
+\pagestyle{empty}
+
+\clearpage
+\null
+\clearpage
+
+\restoregeometry
+
+%\thispagestyle{empty}
+\begin{flushright}
+\null \vspace{\stretch{1}}
+\emph{A chi mi vuole bene}
+\vspace{\stretch{2}}\null
+\end{flushright}
+
+\clearpage
+\null
+%\thispagestyle{empty}
+\clearpage
+
+\frontmatter
+\setstretch{1.5}
+\pagestyle{plain}
+\begin{flushleft}
+	\textbf{\Large{Preface}}
+\end{flushleft}
+
+\noindent
+This thesis constitutes my master's degree in Mechatronics Engineering at the University of Trento. 
+The following work describes the research project I dedicated myself to from September 2021 to May 2022 at Witted Srl, a tech start-up of Progetto Manifattura in Rovereto. Witted does R\&D on robotic systems and artificial intelligence to explore and monitor marine habitats with the purpose of protecting the natural environment.
+
+The project was conceived together with the CTO of the company, Emanuele Rocco, and came from the will to merge two different topics: my university studies, centered on mechatronics and robotics, and my interest in meteorology and weather data observation. I want to thank the company for the opportunity since this experience has helped me expand my knowledge in the field of autonomous navigation.
+
+%It concerns the study of different spatio-temporal approaches for path planning to develop an intelligent system for unmanned surface vessels that makes autonomous decisions depending on marine weather forecasting.
+
+\vspace{4cm}
+\begin{center}
+	Giorgio Checola \\
+	\textit{Trento, May 25, 2022}
+\end{center}
+%\chapter{\centering{\large{Abstract}}}
+
+\clearpage
+\null
+\thispagestyle{empty}
+\clearpage
+
+\begin{flushleft}
+	\textbf{\Large{Abstract}}
+\end{flushleft}
+
+\input{Chapters/Abstract}
+
+{\tableofcontents
+\let\cleardoublepage\clearpage 
+\listoffigures
+\let\cleardoublepage\clearpage 
+\listoftables}
+%\listofalgorithms
+%\makenomenclature
+%\mbox{}
+%\renewcommand{\nomname}{List of Symbols}
+%\nomenclature{\(+a\)}{Operator}
+%\nomenclature{\(2a\)}{Number}
+%\nomenclature{\(:a\)}{Punctuation symbol}
+%\nomenclature{\(Aa\)}{Uppercase letter}
+%\nomenclature{\(aa\)}{Lowercase letter}
+%\nomenclature{\(\alpha\)}{Greek character}
+
+%\printnomenclature
+
+\mainmatter
+\pagestyle{fancy}
+%\fancyhead[ER]{\nouppercase\leftmark}
+%\fancyhead[OR]{\nouppercase\rightmark}
+%\fancyhead[ER,OR]{\thepage}
+\chapter{Introduction}
+\input{Chapters/Chapter1}
+
+\chapter{Path planning and Weather Forecast}
+
+\input{Chapters/Chapter2}
+
+
+
+\chapter{Spatio-temporal map generation}
+\input{Chapters/Chapter3}
+
+
+\chapter{Weather avoidance simulations}
+\input{Chapters/Chapter4}
+
+\chapter{Improved spatio-temporal map}
+\input{Chapters/Chapter5}
+
+\chapter{Conclusion}
+%\addcontentsline{toc}{chapter}{Conclusion}
+\input{Chapters/Conclusions}
+
+\backmatter
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\bibname}
+\setstretch{1}
+\bibliographystyle{plainnat}
+\bibliography{Bibliography}
+
+%\pagenumbering{roman}
+\appendix
+\setstretch{1.5}
+\chapter{Appendix}
+\fancyhead{}
+\fancyhead[RO]{\slshape\nouppercase{Appendix}}
+\fancyhead[LE]{\slshape\nouppercase{Appendix}}
+\input{Chapters/Appendix}
+
+\chapter*{Ringraziamenti}
+Arrivato a questo punto, mentre scrivo queste righe, mi rendo conto di aver ormai terminato il mio percorso universitario. Perciò non mi resta che ringraziare chi mi ha permesso di arrivare fin qui.\\
+Ringrazio in primis Emanuele e Andrea di Witted per avermi dato l'opportunità di svolgere il progetto di tesi nella loro tech start up e il professor Fontanelli che mi ha fatto da relatore. Nadir, il primo ad interessarsi al mio lavoro e con cui ho avuto la fortuna di confrontarmi durante i primi mesi in azienda. Simone a cui, nonostante fosse preso dai suoi compiti, potevo sempre chiedere un aiuto. E infine Sergio, che mi ha supportato enormemente negli ultimi mesi di tesi.\\
+Passando alla mia famiglia, ringrazio mia madre che ha avuto la pazienza di sopportare le mie frustrazioni incoraggiandomi sempre; mio padre, che seppur col suo fare un po' da so-tutto-io, non ha smesso di consigliare un testardo come me; e i miei fratelli su cui, nonostante non comunichiamo spesso, posso comunque contare.\\
+Rimanendo all'interno dell'università vorrei ringraziare Riccardo, e ancora più Antonello, due menti superiori con cui ho condiviso lezioni infinite e periodi d'esame infernali e che mi hanno aiutato a stare al loro passo. Senza dimenticare Domenico, sempre disponibile per consigli, e Andrea Boiardi, correttore personale nel periodo di tesi.
+Ringrazio poi Federico con cui ho potuto continuare gli allenamenti di karate, momento di sfogo e di svago in giornate sempre intense, ma anche per tutti i passaggi che mi ha offerto durante il periodo a Rovereto.\\
+E infine i miei amici di Reggio su cui posso sempre contare nonostante i miei sporadici ritorni, e tutti quelli venuti oggi a condividere questo mio risultato.\\
+Bisogna proprio dirlo: ``\'E FINITAAAAAAAA''
+
+\end{document}

@@ -1,0 +1,64 @@
+\label{conclusions}
+%atmospheric disturbances at sea with the aim of improving the navigation of autonomous surface vessels, and even manned boats.
+% that avoid the predicted obstacle movement
+%This thesis has focused on developing a path planning approach that considers wave forecasts during path computation. Given that weather frequently changes at sea and can significantly affect vehicles' motion, autonomous boats need to consider this potential disturbance before actually sailing. 
+This thesis has proposed a path planning approach that considers wave forecasts during path computation of autonomous surface vessels. Given that weather frequently changes at sea, the boat has to make appropriate decisions considering potential disturbances based on the forecast of the sea state.
+
+The implementation of meteorological data in the path planning problem has been performed using NetCDF files, which store sea forecasts in a multidimensional array form with hourly temporal resolution. Moreover, they have been employed to examine time averages, wave distribution, and direction of origin in order to ensure safer navigation. This format has achieved good results in terms of performance, simplicity, and usability in simulations and data processing.
+
+The environmental map modeling is the operating step that mostly affects path planning results. Therefore we focused on generating an accurate map that included the time-varying unsafe marine areas expected for the following hours. 
+Three methods have been conceived based on how hourly time windows are considered: \textbf{\textit{Sum}}, \textbf{\textit{Global}}, and \textbf{\textit{Local}}. They have been tested over 12 simulation days in the region of the Tyrrhenian sea, considering two nautical routes in both directions, and using three path planners, i.e., the improved version of Rapidly-Exploring Random Tree (RRT*), A*, and the Artificial Potential Field (APF).
+The first results have shown a low performance of the three methods in terms of efficiency or navigation safety, highlighting the need to improve the model of the map. So we designed the \textbf{\textit{Improved method}}. \\
+By integrating the division in temporal bands and the sum of temporal maps in a recursive algorithm, it creates a forecast map that prioritizes both the USV safety and the planning efficiency. The map is then used by the asymptotically optimal algorithm, RRT*, to build the shortest global path.
+Its performance of 85.4\% efficiency and 100\% safety shown in \autoref{improvedmethod} proves that the model of an accurate environmental map designed by combining time windows of marine forecasts can be employed to generate deliberative and safe paths predicting the shifting of dynamic obstacles \textit{a priori}. 
+%The last proposed approach is called \textbf{\textit{Improved method}}. It takes its name from the fact that it represents a better version than the originally conceived three spatio-temporal approaches. By integrating the division in temporal bands and the sum of temporal maps in a recursive algorithm, it creates a forecast map that includes the time-varying unsafe marine areas expected for the following hours. The map is then used by the asymptotically optimal algorithm, RRT*, to build the shortest global path. This functionality permits prioritizing both the USV safety and the optimality of the route.\\
+%The methodology based on NetCDF files derives from how to consider marine weather factors in a path planning problem. This format has achieved good results in terms of performance, simplicity, and usability in the simulations and for data processing. Moreover, it allowed carrying out an accurate analysis of the sea state necessary to ensure safe navigation.\\
+%Thus, the aim is to enhance the USV performance for environmental monitoring applications.
+\vspace{0.3cm}\\
+In this thesis, we have used sea waves as obstacles, particularly the significant wave height $H_{m0}$, based on the assumption that they represent the most influential marine factor for the safety of a small vessel. Additional environmental data could be embedded to make the simulations more realistic and prepare the vehicle for a real-world application. Examples include the velocity of sea currents, wave direction, and wind forces, many of which can be directly downloaded in NetCDF format. In this regard, Figure \ref{currentspeed} displays the current speed and direction of 2021 in the concerned Mediterranean region, along with wave direction.
+%Looking more broadly, precipitation and solar irradiance may considerably affect the USV mission. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=90mm]{Figures/wavedircurr2021.png}
+	\caption{Annual mean current speed in 2021}
+	\label{currentspeed}
+\end{figure} 
+Future work should focus on two main objectives: improving the global path planning solution and developing the control and decision system while sailing. The first can be achieved by operating on the following aspects:
+\begin{itemize}[itemsep=0pt]
+	\item Choice of the path planning algorithm to reduce computing time and improve path smoothness;
+	%\item Reduction of the computing time;
+	%\item Route optimization: improving path smoothness;
+	\item Consider forecast uncertainty, as mentioned at the end of \autoref{approach};
+	\item Increase the number of simulations to validate the method proposed.
+\end{itemize}
+The other objective should examine the boat's behavior while effectively in motion, which means analyzing the local planning of the vehicle. These include two major topics in which time and effort could be invested:
+\begin{itemize}[itemsep=0pt]
+	\item Model the dynamics of the vessel and design a control system for unpredictable sea disturbances;
+	\item Add visual sensors with artificial intelligence to augment USV real-time localization and adaptability. The increased perception may alert the boat to sudden weather changes and make appropriate decisions accordingly \cite{zhang2021unmanned}.
+\end{itemize}
+
+In conclusion, the insights gained with this work could be applied in the future, paving the way for a stronger connection between satellite data, \textit{in situ} data, and autonomous navigation. This thesis opens up the possibility of embedding weather in the decision-making process of surface vessels with potential implications for shipping and monitoring applications of marine robots.
+% , given that marine vessels are more affected by the environment respect to classic robots.
+%this work builds a stronger connection between autonomous navigation and the environmental field, allowing considering sea parameters without using additional sensors. 
+\vspace{0.5cm}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=80mm]{Figures/wittedusv1.JPG}
+	\caption{Argo USV at the Argentario}
+	\label{wittedargo}
+\end{figure} 
+%data measurements of the boat increasing navigation safety, optimize missions and the autonomy during environmental monitoring.
+%The spatio-temporal path planning approach opens up 
+%The current study represents the starting point of a more comprehensive project that concerns the development of a weather avoidance decision-making system that generates human-like driving strategies, including target selection and route optimization, based on the understanding of the environment. 
+%The path planning results represent a fundamental aspect that the decision-making process will take into account to decide the daily mission. 
+%Working on these methods, we understood that there was a flaw in each of them that prevent their use in real applications. Therefore we designed a new method that could improve the others' performance and guarantee USV safety for an eventual future implementation.
+%The meteorological data used are stored in multidimensional array form as NetCDF files with hourly temporal resolution. They have been used to see the daily and monthly mean of the waves but also examine their distribution, and the direction of origin with the wave rose plots. They allow, above all, to model static obstacles, i.e., the islands, and the dynamic obstacles, i.e., the waves.
+%They allow to analyze deeper the sea state, like the period where it is preferable to navigate, the time mean, the distribution of the waves and the direction of origin  
+
+
+%The first one sums all maps, the second considers one map at a time, and the third divides the space in annulus which behaves as a time window and include only the corresponding obstacles of that hour.
+
+%Global is the perfect method for safety. Moreover sometimes it can assure better results than Local and Improved because it does  not suffer of the time resolution mapping.
+%Often we get confused between the actual athmospheric conditions, which could be measured in real-time by sensors and weather predictions, which instead cannot be measured or embedded autonomously by the vessel in order to perform a reaction. This thesis proposes such an approach. Moreover, people can think that the appropriate vehicles could withstand athmosferic factors at sea. The answer is that "if it was possible to avoid these weather disturbances and perform a safe navigation, why don't do that?"
+%A weather avoidance system could significantly improve the autonomous mission capability leading to faster surveillances, and coastal monitoring.

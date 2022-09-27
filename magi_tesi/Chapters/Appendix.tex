@@ -1,0 +1,138 @@
+\label{appendix}
+This appendix includes a series of additional simulation days and the related tables with the travel time and computing time of each run. The chosen days indicate the different mapping between the three approaches, but above all, between \textbf{\textit{Local}} and \textbf{\textit{Improved method}}. 
+
+From Table \ref{tabell4} and \ref{tabella5}, we can note that the boat cannot sail on Day 7, 8, and 9. The reason is that the destination spot will be in the unsafe region once reached.
+A straightforward solution could be changing the departure time or focusing on other target areas.
+\begin{table}[htbp]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{\multirow{2}[4]{*}{}} & \multicolumn{6}{c|}{\textbf{Argentario $\longrightarrow$ Porto Vecchio harbor}} & \multicolumn{6}{c|}{\textbf{Elba Island $\longrightarrow$ Porto Vecchio harbor}} \bigstrut\\
+			\cline{3-14}    \multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{\textbf{Day 3}} & \multicolumn{2}{c|}{\textbf{Day 10}} & \multicolumn{2}{c|}{\textbf{Day 11}} & \multicolumn{2}{c|}{\textbf{Day 4}} & \multicolumn{2}{c|}{\textbf{Day 6}} & \multicolumn{2}{c|}{\textbf{Day 9}} \bigstrut\\
+			\hline
+			Algorithm & Planning & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} & \multicolumn{1}{p{3em}|}{$T_{path}$($h$)} & \multicolumn{1}{p{3em}|}{$t_{exec}$($s$)} \bigstrut\\
+			\hline
+			\multirow{3}[6]{*}{\textbf{RRT*}} & \textit{Global}  & 11.11 & 47.106 & \textcolor{red}{None}  & \textcolor{red}{None}  & 9.55  & 41.975 & \textcolor{red}{None}  & \textcolor{red}{None}  & \multicolumn{1}{c|}{8.59} & 24.101 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\cline{2-14}          & \textit{Local} & 10.08 & 4.623 & 11.28 & 6.896 & 9.00  & 2.742 & 8.63  & 11.968 & 8.58  & 5.483 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\cline{2-14}          & \textit{Sum} & 11.01 & 7,037 & 12.19 & 8.564 & 10.71 & 2.579 & 8.83  & 2.807 & 9.22  & 8.530 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\hline
+			\multirow{3}[6]{*}{\textbf{A*}} & \textit{Global}  & 10.75 & 26.689 & 11.62 & 21.960 & 9.86  & 28.043 & 9.03  & 27.553 & \textcolor{red}{None}  & \textcolor{red}{None}  & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\cline{2-14}          & \textit{Local} & 10.74 & 2.810 & 11.62 & 2.300 & 9.72  & 2.122 & 9.03  & 3.384 & 8.77  & 1.288 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\cline{2-14}          & \textit{Sum} & 12.27 & 3.690 & 12.65 & 2.716 & 11.11 & 1.192 & 9.28  & 3.620 & 9.91  & 1.295 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\hline
+			\multirow{3}[6]{*}{\textbf{APF}} & \textit{Global}  & 10.42 & 0.879 & 11.87 & 0.672 & 9.14  & 0.595 & \textcolor{red}{None}  & \textcolor{red}{None}  & 8,89  & 0,528 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\cline{2-14}          & \textit{Local} & 10.71 & 0.044 & 12.43 & 0.086 & 8.74  & 0.025 & 8.33  & 0,056 & 8.35  & 0.049 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\cline{2-14}          & \textit{Sum} & 11.78 & 1.024 & 12.95 & 0.650 & 10.68 & 0.236 & 9.3567 & 0.953 & 9.41  & 0.236 & \textcolor{red}{None}  & \textcolor{red}{None} \bigstrut\\
+			\hline
+	\end{tabular}}%
+	\caption{Additional days - Travel and computing time}
+	\label{tabella3}%
+\end{table}%
+\begin{table}[htbp]
+	\centering
+	
+	\resizebox{\textwidth}{!}{%
+		\renewcommand{\arraystretch}{1.5}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{} & \textbf{Day 1} & \textbf{Day 2} & \textbf{Day 3} & \textbf{Day 4} & \textbf{Day 5} & \textbf{Day 6} & \textbf{Day 7} & \textbf{Day 8} &\textbf{Day 9} & \textbf{Day 10} & \textbf{Day 11} & \textbf{Day 12} \bigstrut\\
+			\hline
+			\multicolumn{1}{|c|}{\multirow{2}[4]{*}{\parbox{5em}{\centering \textbf{RRT*} \textit{Improved method}}}} & $T_{path}$($h$) & 10.44  & 9.31  & 10.09  & 10.72  & \textcolor{red}{None}  & 11.19  & \textcolor{red}{None}  & \textcolor{red}{None}  & \textcolor{red}{None}  & 10.77  & 8.91  & 9.41 \bigstrut\\
+			\cline{2-14} & $t_{exec}$($s$) & 155.573 & 190.166 & 87.209 & 166.97 & \textcolor{red}{None} & 151.489 & \textcolor{red}{None} & \textcolor{red}{None} & \textcolor{red}{None} & 188.916 & 62.912 & 75.372 \bigstrut\\
+			\hline
+	\end{tabular}}%
+	\caption{Argentario $\longrightarrow$ Porto Vecchio harbor - \textbf{\textit{Improved method}}}
+	\label{tabell4}%
+\end{table}%
+
+\begin{table}[htbp]
+	\centering
+	
+	\resizebox{\textwidth}{!}{%
+		\renewcommand{\arraystretch}{1.5}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{} & \textbf{Day 1} & \textbf{Day 2} & \textbf{Day 3} & \textbf{Day 4} & \textbf{Day 5} & \textbf{Day 6} & \textbf{Day 7} & \textbf{Day 8} &\textbf{Day 9} & \textbf{Day 10} & \textbf{Day 11} & \textbf{Day 12} \bigstrut\\
+			\hline
+			\multicolumn{1}{|c|}{\multirow{2}[4]{*}{\parbox{5em}{\centering \textbf{RRT*} \textit{Improved method}}}} & $T_{path}$($h$) & 9.88  & 8.49  & 8.45  & 8.53  & 8.48  & 8.78  & \textcolor{red}{None}  & \textcolor{red}{None}  & \textcolor{red}{None}  & 8.56  & 8.33  & 8.46 \bigstrut\\
+			\cline{2-14} & $t_{exec}$($s$) & 95.642 & 193.995 & 182.016 & 89.894 & 72.751 & 193.621 & \textcolor{red}{None} & \textcolor{red}{None} & \textcolor{red}{None} & 214.517 & 57.084 & 52.286 \bigstrut\\
+			\hline
+	\end{tabular}}%
+	\caption{Elba Island $\longrightarrow$ Porto Vecchio harbor - \textbf{\textit{Improved method}}}
+	\label{tabella5}%
+\end{table}%
+\newpage
+\begin{figure}[H]
+	\centering
+	\subfloat[Day 3 - \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day3revs.png}\label{day3rev1s}}
+	\hspace{0.1cm}
+	\subfloat[Day 3 - \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day3revg.png}\label{day3rev1g}}
+	\hspace{0.1cm}
+	\subfloat[Day 3 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day3revl.png}\label{day3rev1l}}
+	\hspace{0.1cm}
+	\subfloat[Day 10 - \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day10revs.png}\label{day10rev1s}}
+	\hspace{0.1cm}
+	\subfloat[Day 10 - \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day10revg.png}\label{day10rev1g}}
+	\hspace{0.1cm}
+	\subfloat[Day 10 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day10revl.png}\label{day10rev1l}}
+	\hspace{0.1cm}
+	\subfloat[Day 11 - \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day11revs.png}\label{day11rev1s}}
+	\hspace{0.1cm}
+	\subfloat[Day 11 - \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day11revg.png}\label{day11rev1g}}
+	\hspace{0.1cm}
+	\subfloat[Day 11 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day11revl.png}\label{day11rev1l}}
+	\vspace{0.0cm}
+	\caption{Argentario $\longrightarrow$ Porto Vecchio harbor - Day 3, 10, 11} 
+	\label{addarg}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Day 4 - \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day4revs2.png}\label{day4rev1s}}
+	\hspace{0.1cm}
+	\subfloat[Day 4 - \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day4revg2.png}\label{day4rev1g}}
+	\hspace{0.1cm}
+	\subfloat[Day 4 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day4revl2.png}\label{day4rev1l}}
+	\hspace{0.1cm}
+	\subfloat[Day 6 - \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day6revs2.png}\label{day6rev1s}}
+	\hspace{0.1cm}
+	\subfloat[Day 6 - \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day6revg2.png}\label{day6rev1g}}
+	\hspace{0.1cm}
+	\subfloat[Day 6 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day6revl2.png}\label{day6rev1l}}
+	\hspace{0.1cm}
+	\subfloat[Day 9 - \textbf{\textit{Sum}}]{\includegraphics[width=0.32\textwidth]{Figures/day9revs2.png}\label{day9rev1s}}
+	\hspace{0.1cm}
+	\subfloat[Day 9 - \textbf{\textit{Global}}]{\includegraphics[width=0.32\textwidth]{Figures/day9revg2.png}\label{day9rev1g}}
+	\hspace{0.1cm}
+	\subfloat[Day 9 - \textbf{\textit{Local}}]{\includegraphics[width=0.32\textwidth]{Figures/day9revl2.png}\label{day9rev1l}}
+	\vspace{0.0cm}
+	\caption{Elba Island $\longrightarrow$ Porto Vecchio harbor - Day 4, 6, 9} 
+	\label{addelb}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Day 1]{\includegraphics[width=0.32\textwidth]{Figures/day1impr39.png}\label{day1impr50}}
+	\hspace{0.1cm}
+	\subfloat[Day 4]{\includegraphics[width=0.32\textwidth]{Figures/day4impr50.png}\label{day4impr50}}
+	\hspace{0.1cm}
+	\subfloat[Day 4]{\includegraphics[width=0.32\textwidth]{Figures/day4impr39.png}\label{day4impr39}}
+	\hspace{0.1cm}
+	\subfloat[Day 5]{\includegraphics[width=0.32\textwidth]{Figures/day5impr50.png}\label{day5impr50}}
+	\hspace{0.1cm}
+	\subfloat[Day 6]{\includegraphics[width=0.32\textwidth]{Figures/day6impr50.png}\label{day6impr50}}
+	\hspace{0.1cm}
+	\subfloat[Day 6]{\includegraphics[width=0.32\textwidth]{Figures/day6impr39.png}\label{day6impr39}}
+	\hspace{0.1cm}
+	\subfloat[Day 10]{\includegraphics[width=0.32\textwidth]{Figures/day10impr50.png}\label{day10impr50}}
+	\hspace{0.1cm}
+	\subfloat[Day 10]{\includegraphics[width=0.32\textwidth]{Figures/day10impr39.png}\label{day10impr39}}
+	\hspace{0.1cm}
+	\subfloat[Day 12]{\includegraphics[width=0.32\textwidth]{Figures/day12impr50.png}\label{day12impr50}}
+	\vspace{0.0cm}
+	\captionsetup{font=footnotesize, labelfont=footnotesize}
+	\caption{(b), (d), (e), (g), (i) Argentario $\longrightarrow$ Porto Vecchio harbor.
+		     (a), (c), (f), (h) Elba Island $\longrightarrow$ Porto Vecchio harbor - \textbf{\textit{Improved method}}} 
+	\label{addimpr}
+\end{figure}
